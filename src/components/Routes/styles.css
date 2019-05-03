@@ -1,0 +1,7 @@
+
+
+.layout .heroLeft {
+  @media (min-width: 600px) {
+    padding: 4rem 50% 0 3rem;
+  }
+}
