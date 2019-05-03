@@ -1,6 +1,6 @@
-# holo-holo
+# The Fitted Furniture Co. website
 
-Website for Claire - Personal petcare for Gedling, Carlton and surrounding areas.
+Website for Will Hall.
 
 ## Tech
 
