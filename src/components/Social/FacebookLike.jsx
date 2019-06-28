@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 import styles from './FacebookLike.css';
 
@@ -32,10 +32,6 @@ export default class FacebookLike extends Component {
     );
   }
 }
-
-FacebookLike.propTypes = {
-  className: PropTypes.string
-};
 
 FacebookLike.defaultProps = {
   className: 'facebook-like-button'

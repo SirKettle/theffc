@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import { Connected as Navigation } from '../../containers/Navigation/Navigation';
 import Footer from '../Footer/Footer';
@@ -6,8 +6,8 @@ import Content from '../Content/Content';
 import SlideShow from '../SlideShow/SlideShow';
 import FixedRatioContainer from '../FixedRatioContainer/FixedRatioContainer';
 import styles from './Layout.css';
-import logoText from '../../assets/images/logo-text_1000x352.png';
-import logoAnimals from '../../assets/images/logo-animals_924x824.png';
+import logoTheFFC from '../../assets/images/logo/theffcco-cream.png';
+import { name } from '../../constants/site';
 
 const Layout = ({
   className,
@@ -19,29 +19,16 @@ const Layout = ({
 }) => (
   <div className={classnames(styles.layout, className)}>
     <div className={styles.header}>
-      <div className={styles.logoTextFlex}>
+      <div className={styles.logosWrapper}>
         <FixedRatioContainer
           className={styles.logoTextWrapper}
-          width={1000}
-          height={352}
+          width={400}
+          height={64}
         >
           <img
             className={styles.logoText}
-            src={logoText}
-            alt="holo-holo"
-          />
-        </FixedRatioContainer>
-      </div>
-      <div className={styles.logoAnimalsFlex}>
-        <FixedRatioContainer
-          className={styles.logoAnimalsWrapper}
-          width={924}
-          height={824}
-        >
-          <img
-            className={styles.logoAnimals}
-            src={logoAnimals}
-            alt="holo-holo"
+            src={logoTheFFC}
+            alt={name}
           />
         </FixedRatioContainer>
       </div>
@@ -71,15 +58,6 @@ const Layout = ({
     <Footer className={styles.footer} />
   </div>
 );
-
-Layout.propTypes = {
-  className: PropTypes.string,
-  slideShowImages: PropTypes.arrayOf(PropTypes.string),
-  hero: PropTypes.string,
-  heroCopy: PropTypes.string,
-  heroCopyClassName: PropTypes.string,
-  children: PropTypes.node.isRequired
-};
 
 Layout.defaultProps = {
   className: null,

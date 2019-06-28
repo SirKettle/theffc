@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import styles from './FixedRatioContainer.css';
 
@@ -17,13 +17,6 @@ const FixedRatioContainer = ({
     </div>
   </div>
 );
-
-FixedRatioContainer.propTypes = {
-  className: PropTypes.string,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
-  children: PropTypes.node.isRequired
-};
 
 FixedRatioContainer.defaultProps = {
   className: null,

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React  from 'react';
 import Markdown from 'react-markdown';
 import classnames from 'classnames';
 import visit from 'unist-util-visit';
@@ -69,15 +69,6 @@ const Content = ({
     astPlugins={[stripImageParagraphPlugin]}
   />
 );
-
-Content.propTypes = {
-  className: PropTypes.string,
-  justifyText: PropTypes.oneOf('left', 'center', 'right', 'justify'),
-  /* eslint react/forbid-prop-types: 0 */
-  renderers: PropTypes.object,
-  noRenderers: PropTypes.bool,
-  markdown: PropTypes.string.isRequired
-};
 
 Content.defaultProps = {
   className: null,

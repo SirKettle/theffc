@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React  from 'react';
 
 const BaseButton = ({
   className,
@@ -19,14 +19,6 @@ const BaseButton = ({
       disabled={disabled}
     >{children}</button>
   );
-};
-
-BaseButton.propTypes = {
-  className: PropTypes.string,
-  disabled: PropTypes.bool,
-  dataRole: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  children: PropTypes.node.isRequired
 };
 
 BaseButton.defaultProps = {

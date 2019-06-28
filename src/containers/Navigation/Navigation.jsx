@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React  from 'react';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { actions as routerActions } from 'redux-router5';
@@ -44,17 +44,9 @@ export const Navigation = ({
             })
         }
       </div>
-      <div className={classnames(styles.item, styles.telNo)}>{site.claireMobile}</div>
+      <div className={classnames(styles.item, styles.telNo)}>{site.mobile}</div>
     </div>
   );
-};
-
-Navigation.propTypes = {
-  className: PropTypes.string,
-  /* eslint react/forbid-prop-types: 0 */
-  activeRoute: PropTypes.object.isRequired,
-  // track: PropTypes.func,
-  navigateTo: PropTypes.func
 };
 
 Navigation.defaultProps = {

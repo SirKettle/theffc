@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>holo holo</title>
+    <title>The Fitted Furniture Company</title>
     <meta charset="utf-8">
     <meta name="author" content="Will Thirkettle - JavaScript Developer - London">
     <meta name="Copyright" content="Will Thirkettle Ltd">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    
+
     <!-- common social tags -->
     <meta property="og:type" content="website">
     <meta property="og:image" content="http://holo-holo.co.uk/images/social-logo.png">
@@ -32,7 +32,7 @@
       ga('create', 'UA-40085503-5', 'auto');
     </script>
     <script async src='https://www.google-analytics.com/analytics.js'></script>
-    
+
     <!-- app icons -->
     <link rel="shortcut icon" href="favicon.png">
     <link rel="apple-touch-icon-precomposed" href="images/icon_152.png">
@@ -41,6 +41,9 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700|Playfair+Display|Slabo+27px" rel="stylesheet">
   </head>
   <body>
+    <div id="googlePlaceTargetId"></div>
     <div id="app"></div>
+    <!-- TODO: need to restrict this API_KEY -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAAuJJI9BKINNLj1ekKfll5akpzWyoWALg&libraries=places"></script>
   </body>
 </html>

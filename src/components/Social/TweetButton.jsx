@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import classnames from 'classnames';
 
 export default class TweetButton extends Component {
@@ -32,11 +32,6 @@ export default class TweetButton extends Component {
     );
   }
 }
-
-TweetButton.propTypes = {
-  className: PropTypes.string,
-  text: PropTypes.string
-};
 
 TweetButton.defaultProps = {
   className: 'tweet-button',

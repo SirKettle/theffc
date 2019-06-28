@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React  from 'react';
 import BaseButton from './BaseButton';
 
 const Button = ({
@@ -15,14 +15,6 @@ const Button = ({
     >{children}</BaseButton>
   );
 };
-
-Button.propTypes = {
-  className: PropTypes.string,
-  dataRole: PropTypes.string,
-  onClick: PropTypes.func,
-  children: PropTypes.node.isRequired
-};
-
 Button.defaultProps = {
   className: 'some-button',
   dataRole: 'button',

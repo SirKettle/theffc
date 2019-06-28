@@ -1,11 +1,11 @@
 
-const trackPage = (routePath) => {
+export const trackPage = (routePath) => {
   if (window.ga) {
     window.ga('send', 'pageview', `/#${routePath}`);
   }
 };
 
-const trackEvent = (type, key, data) => {
+export const trackEvent = (type, key, data) => {
   if (window.ga) {
     window.ga('send', {
       hitType: 'event',
@@ -14,9 +14,4 @@ const trackEvent = (type, key, data) => {
       eventLabel: data
     });
   }
-};
-
-export default {
-  page: trackPage,
-  event: trackEvent
 };

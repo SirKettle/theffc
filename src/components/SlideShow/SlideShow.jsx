@@ -1,104 +1,152 @@
-import React, { Component, PropTypes } from 'react';
-import ReactTimeout from 'react-timeout';
+import React, { useEffect, useRef, useState } from 'react';
+import { memoizeWith, identity } from 'ramda';
 import classnames from 'classnames';
 import FixedRatioContainer from '../FixedRatioContainer/FixedRatioContainer';
 import styles from './SlideShow.css';
 
-class SlideShow extends Component {
+const preloadImage = memoizeWith(identity, src => {
+  const image = new Image();
+  image.src = src;
+});
 
-  state = {
-    currentIndex: 0,
-    currentOpacity: 1,
-    transition: false
-  }
+function useInterval(callback, delay) {
+  const savedCallback = useRef();
 
-  componentWillMount() {
-    this.start();
-  }
+  useEffect(() => {
+    savedCallback.current = callback;
+  });
 
-  getNextIndex = () => {
-    const nextIndex = this.state.currentIndex === this.props.images.length - 1
-    ? 0 : this.state.currentIndex + 1;
-    return nextIndex;
-  }
-
-  start = () => {
-    if (this.props.images.length > 1) {
-      this.props.setTimeout(this.fadeSlide, this.props.displayTime);
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
     }
-  }
 
-  nextSlide = () => {
-    this.setState({
-      currentIndex: this.getNextIndex(),
-      currentOpacity: 1,
-      transition: false
-    });
-    this.start();
-  }
-
-  fadeSlide = () => {
-    this.props.setTimeout(this.nextSlide, this.props.fadeTime);
-    this.setState({
-      currentOpacity: 0,
-      transition: true
-    });
-  }
-
-  preloadImage = (src) => {
-    const image = new Image();
-    image.src = src;
-  }
-
-  preloadImages() {
-    this.props.images.forEach(this.preloadImage);
-  }
-
-  render() {
-    const { className, images, fadeTime } = this.props;
-
-    const nextImageIndex = this.state.transition
-      ? this.getNextIndex() : this.state.currentIndex;
-
-    this.preloadImages();
-
-    return (
-      <FixedRatioContainer
-        width={9}
-        height={5}
-        className={classnames(styles.slideShow, className)}
-      >
-        <div className={styles.slides}>
-          <div
-            className={classnames(styles.image, styles.current)}
-            style={{
-              backgroundImage: `url(${images[this.state.currentIndex]})`,
-              transition: `opacity ${fadeTime}ms ease-out`,
-              opacity: this.state.currentOpacity
-            }}
-          />
-          <div
-            className={classnames(styles.image, styles.next)}
-            style={{ backgroundImage: `url(${images[nextImageIndex]})` }}
-          />
-        </div>
-      </FixedRatioContainer>
-    );
-  }
+    const id = setInterval(tick, delay);
+    return () => clearInterval(id);
+  }, [delay]);
 }
 
-SlideShow.propTypes = {
-  setTimeout: PropTypes.func.isRequired,
-  className: PropTypes.string,
-  displayTime: PropTypes.number,
-  fadeTime: PropTypes.number,
-  images: PropTypes.arrayOf(PropTypes.string).isRequired
-};
+function SlideShow({ images, className = null, displayTime = 3500, fadeTime = 1500, tick = 100 }) {
+  const [timer, setTimer] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [opacity, setOpacity] = useState(1);
+  const [transition, setTransition] = useState(false);
 
-SlideShow.defaultProps = {
-  className: null,
-  displayTime: 3500,
-  fadeTime: 1500
-};
+  const getNextIndex = () => (imageIndex === images.length - 1 ? 0 : imageIndex + 1);
 
-export default ReactTimeout(SlideShow);
+  useEffect(() => {
+    images.forEach(preloadImage);
+  }, [images.length]);
+
+  useInterval(() => {
+    if (images.length < 2) {
+      return;
+    }
+
+    setTimer(timer + tick);
+
+    if (timer >= displayTime && !transition) {
+      // fade out
+      setOpacity(0);
+      setTransition(true);
+      return;
+    }
+
+    if (timer >= displayTime + fadeTime && transition) {
+      // set new image
+      setImageIndex(getNextIndex());
+      // fade in
+      setOpacity(1);
+      setTransition(false);
+      // reset timer
+      setTimer(0);
+    }
+  }, tick);
+
+  const nextImageIndex = transition ? getNextIndex() : imageIndex;
+
+  return (
+    <FixedRatioContainer width={9} height={5} className={classnames(styles.slideShow, className)}>
+      <div className={styles.slides}>
+        <div
+          className={classnames(styles.image, styles.current)}
+          style={{
+            backgroundImage: `url(${images[imageIndex]})`,
+            transition: `opacity ${fadeTime}ms ease-out`,
+            opacity,
+          }}
+        />
+        <div
+          className={classnames(styles.image, styles.next)}
+          style={{ backgroundImage: `url(${images[nextImageIndex]})` }}
+        />
+      </div>
+    </FixedRatioContainer>
+  );
+}
+
+export default SlideShow;
+//
+// function SlideShow({
+//   images,
+//   className = null,
+//   displayTime = 3500,
+//   fadeTime = 1500
+// }) {
+//   const [imageIndex, setImageIndex] = useState(0);
+//   const [opacity, setOpacity] = useState(1);
+//   const [transition, setTransition] = useState(false);
+//
+//   const getNextIndex = () => imageIndex === images.length - 1 ? 0 : imageIndex + 1;
+//
+//   useEffect(() => {
+//     images.forEach(preloadImage);
+//     start();
+//   }, [images.length]);
+//
+//   function start() {
+//     if (images.length > 1) {
+//       useTimeout(fadeSlide, displayTime);
+//     }
+//   }
+//
+//   function nextSlide() {
+//     setImageIndex(getNextIndex());
+//     setOpacity(1);
+//     setTransition(false);
+//     start();
+//   }
+//
+//   function fadeSlide() {
+//     setOpacity(0);
+//     setTransition(true);
+//     useTimeout(nextSlide, fadeTime);
+//   }
+//
+//   const nextImageIndex = transition ? getNextIndex() : imageIndex;
+//
+//   return (
+//     <FixedRatioContainer
+//       width={9}
+//       height={5}
+//       className={classnames(styles.slideShow, className)}
+//     >
+//       <div className={styles.slides}>
+//         <div
+//           className={classnames(styles.image, styles.current)}
+//           style={{
+//             backgroundImage: `url(${images[imageIndex]})`,
+//             transition: `opacity ${fadeTime}ms ease-out`,
+//             opacity
+//           }}
+//         />
+//         <div
+//           className={classnames(styles.image, styles.next)}
+//           style={{ backgroundImage: `url(${images[nextImageIndex]})` }}
+//         />
+//       </div>
+//     </FixedRatioContainer>
+//   );
+// }
+//
+// export default SlideShow;

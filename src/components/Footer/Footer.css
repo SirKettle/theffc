@@ -76,8 +76,8 @@
 }
 
 .legal {
-  background: #e52f2f; /* red */
-  color: white;
+  color: #F8F4DD;
+  background: #080505;
   padding: 2rem 1rem;
 
   @media (min-width: 600px) {

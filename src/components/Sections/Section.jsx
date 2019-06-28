@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import Content from '../Content/Content';
 import typography from '../../css/typography.css';
@@ -44,15 +44,6 @@ const Section = ({
     </div>
   </div>
 );
-
-Section.propTypes = {
-  className: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string,
-  tag: PropTypes.string,
-  label: PropTypes.string,
-  details: PropTypes.string.isRequired
-};
 
 Section.defaultProps = {
   className: null,

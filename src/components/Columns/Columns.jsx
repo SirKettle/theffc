@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React  from 'react';
 import classnames from 'classnames';
 import styles from './Columns.css';
 
@@ -10,11 +10,6 @@ const Columns = ({
     { children }
   </div>
 );
-
-Columns.propTypes = {
-  className: PropTypes.string,
-  children: PropTypes.node.isRequired
-};
 
 Columns.defaultProps = {
   className: null

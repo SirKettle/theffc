@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React  from 'react';
 import classnames from 'classnames';
 import styles from './ImageButton.css';
 
@@ -20,14 +20,6 @@ const ImageButton = ({
     />
   </button>
 );
-
-ImageButton.propTypes = {
-  onClick: PropTypes.func,
-  className: PropTypes.string,
-  imageClassName: PropTypes.string,
-  imageSrc: PropTypes.string,
-  imageAlt: PropTypes.string
-};
 
 ImageButton.defaultProps = {
   onClick: () => {},

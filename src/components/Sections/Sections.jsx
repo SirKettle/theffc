@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React  from 'react';
 import classnames from 'classnames';
 import styles from './Sections.css';
 import Section from './Section';
@@ -17,11 +17,6 @@ const Sections = ({
     }
   </div>
 );
-
-Sections.propTypes = {
-  className: PropTypes.string,
-  sections: PropTypes.arrayOf(PropTypes.object).isRequired
-};
 
 Sections.defaultProps = {
   className: null

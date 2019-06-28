@@ -9,6 +9,12 @@
 /*
 #e52f2f; /* red */
 
+/* theffc colors
+
+#080505 - brown
+#F8F4DD - cream
+*/
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -23,7 +29,7 @@
 
 .header {
   flex: 0 0 auto;
-  background: white;
+  background: #080505;
   padding: 1rem 1rem;
   display: flex;
   flex-direction: row;
@@ -35,23 +41,22 @@
   }
 }
 
-.logoTextFlex {
-  flex: 0 0 60%;
-  @media (min-width: 600px) {
+.logosWrapper {
+  flex: 0 0 100%;
+
+  @media (min-width: 500px) {
     flex: 0 0 55%;
   }
+
+  /*@media (min-width: 769px) {*/
+    /*flex: 0 0 40%;*/
+  /*}*/
+}
+
+.logoTextWrapper {
 }
 
 .logoText {
-  width: 100%;
-  height: 100%;
-}
-
-.logoAnimalsFlex {
-  flex: 0 0 30%;
-}
-
-.logoAnimals {
   width: 100%;
   height: 100%;
 }
@@ -60,7 +65,7 @@
   flex: 0 0 auto;
   width: 100%;
   position: relative;
-  background: white;
+  background: #F8F4DD;
 }
 
 .hero {
@@ -78,13 +83,13 @@
 }
 
 .content {
-  background: #f7f3eb;
   background: white;
+  background: #F8F4DD;
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
   padding: 1rem 1rem 2rem;
-  
+
   @media (min-width: 600px) {
     padding: 2rem 3rem 4rem;
   }
