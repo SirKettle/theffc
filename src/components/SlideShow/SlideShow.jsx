@@ -25,17 +25,19 @@ function useInterval(callback, delay) {
     return () => clearInterval(id);
   }, [delay]);
 }
+const getNextIndex = (currentImageIndex, images) =>
+  currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
 
-function SlideShow({ images, className = null, displayTime = 3500, fadeTime = 1500, tick = 100 }) {
+function SlideShow({ images, className = null, displayTime = 2500, fadeTime = 1000, tick = 100 }) {
   const [timer, setTimer] = useState(0);
-  const [imageIndex, setImageIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [nextImageIndex, setNextImageIndex] = useState(getNextIndex(currentImageIndex, images));
   const [opacity, setOpacity] = useState(1);
   const [transition, setTransition] = useState(false);
 
-  const getNextIndex = () => (imageIndex === images.length - 1 ? 0 : imageIndex + 1);
-
   useEffect(() => {
     images.forEach(preloadImage);
+    setNextImageIndex(getNextIndex(currentImageIndex, images));
   }, [images.length]);
 
   useInterval(() => {
@@ -45,25 +47,33 @@ function SlideShow({ images, className = null, displayTime = 3500, fadeTime = 15
 
     setTimer(timer + tick);
 
-    if (timer >= displayTime && !transition) {
-      // fade out
+    if (timer >= displayTime - fadeTime && !transition) {
+      // fade out current image revealing next image behind it
       setOpacity(0);
       setTransition(true);
       return;
     }
 
-    if (timer >= displayTime + fadeTime && transition) {
+    if (timer >= displayTime + tick && transition) {
       // set new image
-      setImageIndex(getNextIndex());
       // fade in
       setOpacity(1);
+      // setTransition(false);
+      // reset timer
+      // setTimer(0);
+      setCurrentImageIndex(nextImageIndex);
+    }
+
+    if (timer >= displayTime + fadeTime + tick + tick && transition) {
+      // set new image
+      // fade in
+      // setOpacity(1);
       setTransition(false);
       // reset timer
       setTimer(0);
+      setNextImageIndex(getNextIndex(currentImageIndex, images));
     }
   }, tick);
-
-  const nextImageIndex = transition ? getNextIndex() : imageIndex;
 
   return (
     <FixedRatioContainer width={9} height={5} className={classnames(styles.slideShow, className)}>
@@ -71,7 +81,7 @@ function SlideShow({ images, className = null, displayTime = 3500, fadeTime = 15
         <div
           className={classnames(styles.image, styles.current)}
           style={{
-            backgroundImage: `url(${images[imageIndex]})`,
+            backgroundImage: `url(${images[currentImageIndex]})`,
             transition: `opacity ${fadeTime}ms ease-out`,
             opacity,
           }}
