@@ -1,24 +1,18 @@
 {
-  "presets": [
-    "es2015",
-    "react",
-    "stage-0"
-  ],
+  "presets": ["es2015", "react", "stage-0"],
+  "plugins": ["babel-plugin-styled-components"],
   "env": {
     "test": {
-      "presets": [
-        ["es2015", { "modules": "commonjs" }],
-        "react",
-        "stage-0"
-      ],
+      "presets": [["es2015", { "modules": "commonjs" }], "react", "stage-0"],
       "plugins": [
+        "babel-plugin-styled-components",
         "add-module-exports",
         "transform-runtime",
         "transform-decorators-legacy",
         "syntax-class-properties",
         "transform-class-properties",
         "transform-proto-to-assign",
-        [ "babel-plugin-transform-builtin-extend", { "globals": ["Error"] } ]
+        ["babel-plugin-transform-builtin-extend", { "globals": ["Error"] }]
       ]
     }
   }

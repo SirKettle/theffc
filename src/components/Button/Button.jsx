@@ -1,24 +1,23 @@
-import React  from 'react';
-import BaseButton from './BaseButton';
+import React from 'react';
+import styled from 'styled-components';
 
-const Button = ({
-  className,
-  dataRole,
-  onClick,
-  children
-}) => {
+const StyledButton = styled.button``;
+
+const Button = ({ className, dataRole, onClick, children, disabled }) => {
+  const handleClick = () => {
+    return onClick(arguments);
+  };
+
   return (
-    <BaseButton
-      className={className}
-      dataRole={dataRole}
-      onClick={onClick}
-    >{children}</BaseButton>
+    <StyledButton className={className} data-role={dataRole} onClick={handleClick} disabled={disabled}>
+      {children}
+    </StyledButton>
   );
 };
+
 Button.defaultProps = {
-  className: 'some-button',
-  dataRole: 'button',
-  onClick: () => {}
+  onClick: () => {},
+  disabled: false,
 };
 
 export default Button;

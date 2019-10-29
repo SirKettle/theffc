@@ -28,7 +28,7 @@ function useInterval(callback, delay) {
 const getNextIndex = (currentImageIndex, images) =>
   currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
 
-function SlideShow({ images, className = null, displayTime = 2500, fadeTime = 1000, tick = 100 }) {
+function SlideShow({ images, className = null, displayTime = 4000, fadeTime = 1500, tick = 100 }) {
   const [timer, setTimer] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [nextImageIndex, setNextImageIndex] = useState(getNextIndex(currentImageIndex, images));
@@ -58,9 +58,6 @@ function SlideShow({ images, className = null, displayTime = 2500, fadeTime = 10
       // set new image
       // fade in
       setOpacity(1);
-      // setTransition(false);
-      // reset timer
-      // setTimer(0);
       setCurrentImageIndex(nextImageIndex);
     }
 
@@ -96,67 +93,3 @@ function SlideShow({ images, className = null, displayTime = 2500, fadeTime = 10
 }
 
 export default SlideShow;
-//
-// function SlideShow({
-//   images,
-//   className = null,
-//   displayTime = 3500,
-//   fadeTime = 1500
-// }) {
-//   const [imageIndex, setImageIndex] = useState(0);
-//   const [opacity, setOpacity] = useState(1);
-//   const [transition, setTransition] = useState(false);
-//
-//   const getNextIndex = () => imageIndex === images.length - 1 ? 0 : imageIndex + 1;
-//
-//   useEffect(() => {
-//     images.forEach(preloadImage);
-//     start();
-//   }, [images.length]);
-//
-//   function start() {
-//     if (images.length > 1) {
-//       useTimeout(fadeSlide, displayTime);
-//     }
-//   }
-//
-//   function nextSlide() {
-//     setImageIndex(getNextIndex());
-//     setOpacity(1);
-//     setTransition(false);
-//     start();
-//   }
-//
-//   function fadeSlide() {
-//     setOpacity(0);
-//     setTransition(true);
-//     useTimeout(nextSlide, fadeTime);
-//   }
-//
-//   const nextImageIndex = transition ? getNextIndex() : imageIndex;
-//
-//   return (
-//     <FixedRatioContainer
-//       width={9}
-//       height={5}
-//       className={classnames(styles.slideShow, className)}
-//     >
-//       <div className={styles.slides}>
-//         <div
-//           className={classnames(styles.image, styles.current)}
-//           style={{
-//             backgroundImage: `url(${images[imageIndex]})`,
-//             transition: `opacity ${fadeTime}ms ease-out`,
-//             opacity
-//           }}
-//         />
-//         <div
-//           className={classnames(styles.image, styles.next)}
-//           style={{ backgroundImage: `url(${images[nextImageIndex]})` }}
-//         />
-//       </div>
-//     </FixedRatioContainer>
-//   );
-// }
-//
-// export default SlideShow;

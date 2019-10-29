@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 // import tweetsJson from '../../../mock/data/tweets.json';
 import tweetsJson from '../../../mock/data/lfcTweets.json';
-// import { twitterUserId } from '../../constants/site';
+import { twitterUserId } from '../../constants/site';
 
 export const actionTypes = {
   LOAD_TWEETS_PENDING: 'LOAD_TWEETS_PENDING',
@@ -28,8 +28,7 @@ export function loadTweets(dispatch, count = 25) {
 
   console.log('theffc');
 
-  return fetch(`http://server.willthirkettle.co.uk/api/tweets.php?count=${count}&user=ffc_the`, {
-  // return fetch(`http://server.willthirkettle.co.uk/api/tweets.php?count=${count}&user=${twitterUserId}`, {
+  return fetch(`http://api.thekettlestudio.co.uk/api/tweets.php?count=${count}&user=${twitterUserId}`, {
     method: 'GET'
   }).then((response) => {
     return response.json();

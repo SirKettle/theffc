@@ -1,12 +1,12 @@
 
 export const name = 'The Fitted Furniture Co';
-export const mobile = '00000000';
+export const mobile = '01508 558 384';
 export const email = 'will@theffc.co.uk';
 export const strap = 'lorem ipsum';
 export const description = 'blah blah';
 // export const facebookPage = 'https://www.facebook.com/holoholo2018/';
 // export const instagramPage = 'https://www.instagram.com/holoholo2018/';
-export const twitterUserId = 'criticalwill';
+export const twitterUserId = 'ffc_the';
 export const twitterPage = `https://twitter.com/${twitterUserId}/`;
 // export const googleAnalyticsTrackingCode = 'UA-40085503-5';
 

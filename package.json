@@ -37,6 +37,7 @@
     "babel-loader": "^6.3.2",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-styled-components": "^1.10.6",
     "babel-plugin-syntax-class-properties": "^6.13.0",
     "babel-plugin-transform-async-to-generator": "^6.22.0",
     "babel-plugin-transform-builtin-extend": "^1.1.2",
@@ -85,8 +86,8 @@
     "style-loader": "^0.16.0",
     "swipe-js-iso": "^2.0.3",
     "url-loader": "^0.5.9",
-    "webpack": "^2.6.1",
-    "webpack-dev-server": "^2.5.0",
+    "webpack": "2",
+    "webpack-dev-server": "2",
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
@@ -103,8 +104,8 @@
     "immutable": "^3.8.1",
     "js.cookie": "^0.0.4",
     "ramda": "^0.26.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
     "react-markdown": "^3.1.4",
     "react-redux": "^5.0.3",
     "react-router": "^3.0.2",
@@ -120,6 +121,7 @@
     "redux-thunk": "^2.2.0",
     "reselect": "^2.5.4",
     "router5": "^4.5.1",
+    "styled-components": "^4.4.0",
     "unist-util-visit": "^1.3.0",
     "whatwg-fetch": "^2.0.3"
   },

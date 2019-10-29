@@ -29,7 +29,9 @@ const loadingImage = '';
 
 const getImages = images => (images.length ? images.map(i => i.src) : [loadingImage]);
 
-function Home({ images, rating }) {
+function Home({ images, rating, tweets }) {
+  console.log(tweets.map(twitterSelectors.getHashTags));
+
   return (
     <Layout className={styles.layout} slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
       <Columns>
@@ -47,6 +49,7 @@ const mapStateToProps = state => ({
   // progress: state.user.progress,
   // images: twitterSelectors.imageSelector(state),
   images: twitterSelectors.imageWithHashTagSelector('kitchen')(state),
+  tweets: twitterSelectors.directTweetsSelector(state),
   rating: selectRating(state),
 });
 

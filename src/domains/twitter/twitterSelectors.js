@@ -19,7 +19,7 @@ const getTweetImages = (datum) => {
     }));
 };
 
-const getHashTags = (datum) => {
+export const getHashTags = (datum) => {
   return (datum.entities.hashtags || [])
     .map(hashTag => hashTag.text);
 };
