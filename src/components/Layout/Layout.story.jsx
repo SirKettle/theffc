@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs/* , text */ } from '@storybook/addon-knobs';
 import Story from '../../storybook/story';
 import storeDecorator from '../../storybook/decorators/storeDecorator';
-import Layout from './Layout';
+import Index from './Layout';
 import Sections from '../Sections/Sections';
 import * as site from '../../constants/site';
 // import * as site from '../../constants/site';
@@ -78,11 +78,11 @@ storiesOf('Layout', module)
       title="Layout"
       summary="The main layout of the website"
     >
-      <Layout
+      <Index
         hero={imageClaireMountain}
         heroCopy={copy}
       >
         <Sections sections={sections} />
-      </Layout>
+      </Index>
     </Story>
   ));

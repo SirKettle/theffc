@@ -13,6 +13,7 @@ const itemStyles = css`
   color: inherit;
   padding: 0 0.75rem;
   position: relative;
+  top: 4px;
   line-height: 3rem;
   font-size: 13px;
   margin: 0;
@@ -36,7 +37,6 @@ export const NavItem = styled.div`
 export const NavButton = styled(Button)`
   ${itemStyles}
   cursor: pointer;
-  top: 4px;
   border-bottom: solid 4px transparent;
 
   &:hover {
@@ -60,7 +60,7 @@ export const NavigationComponent = styled.div`
   padding: 0.1rem 0.5rem 0;
   border-bottom: solid 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
-  background: ${getBackgroundColor(0.8)};
+  background: ${getBackgroundColor(0.95)};
   @media (min-width: 600px) {
     padding: 0.1rem 2rem 0;
   }

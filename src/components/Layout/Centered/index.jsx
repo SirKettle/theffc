@@ -1,14 +1,16 @@
+import React from 'react';
+
 import styled, { css } from 'styled-components';
 
 const Centered = styled.div`
-  ${({ isFlex = false, width = 1024 }) => {
+  ${({ isFlex = false, maxWidth = 1024 }) => {
     if (isFlex) {
       return css`
-        flex: 0 1 ${width}px;
+        flex: 0 1 ${maxWidth}px;
       `;
     }
     return css`
-      width: ${width}px;
+      width: ${maxWidth}px;
       max-width: 100%;
       margin: auto;
     `;
@@ -16,3 +18,22 @@ const Centered = styled.div`
 `;
 
 export default Centered;
+
+const PaddingContainer = styled.div`
+  ${({ noPadding }) =>
+    noPadding
+      ? ''
+      : css`
+          padding: 0 1rem;
+
+          @media (min-width: 600px) {
+            padding: 0 3rem;
+          }
+        `}
+`;
+
+export const FixedWidthCentral = ({ children, className = '', noPadding = false, width = 1024 }) => (
+  <PaddingContainer className={className} noPadding={noPadding}>
+    <Centered maxWidth={width}>{children}</Centered>
+  </PaddingContainer>
+);

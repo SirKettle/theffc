@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
-import Layout from '../Layout/Layout';
+import Layout from '../Layout';
 import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
 import * as site from '../../constants/site';
@@ -34,8 +34,8 @@ function Home({ images, rating, tweets }) {
 
   return (
     <Layout className={styles.layout} slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
+      {rating ? `My google rating is ${rating}!` : 'Loading google rating'}
       <Columns>
-        {rating ? `My google rating is ${rating}!` : 'Loading google rating'}
         <Blog />
         <Content markdown={columnsCopy[1]} justifyText="justify" />
         <Content markdown={columnsCopy[2]} justifyText="justify" />
