@@ -5,7 +5,7 @@ import Layout from '../Layout';
 import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
 import * as site from '../../constants/site';
-import heroImage from '../../assets/images/slides/sitting_dogs.jpg';
+import heroImage from '../../assets/images/content/homepageimage.jpg';
 
 const columnsCopy = [
   `

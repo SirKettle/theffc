@@ -1,9 +1,8 @@
 
-export const name = 'The Fitted Furniture Co';
+export const name = 'The Fitted Furniture Company';
 export const mobile = '01508 558 384';
 export const email = 'will@theffc.co.uk';
-export const strap = 'lorem ipsum';
-export const description = 'blah blah';
+export const description = 'Handmade kitchens, fitted wardrobes and bespoke fitted furniture handmade in Norwich, Norfolk';
 // export const facebookPage = 'https://www.facebook.com/holoholo2018/';
 // export const instagramPage = 'https://www.instagram.com/holoholo2018/';
 export const twitterUserId = 'ffc_the';

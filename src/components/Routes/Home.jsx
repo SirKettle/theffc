@@ -6,22 +6,26 @@ import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
 import * as site from '../../constants/site';
 import styles from './styles.css';
-import Blog from '../Blog/Blog';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
 import { selectRating } from '../../domains/googlePlace/selectors';
+import kitchenImage from '../../assets/images/content/homepageimage.jpg';
+import kitchenCopperImage from '../../assets/images/content/kitchen-copper.jpg';
 
-const columnsCopy = [
+// <img src="../img/homepageimage.jpg" alt="Handmade kitchens" width="350" height="233" className="right"/>
+
+const columnsCopy = rating => [
   `
-# ${site.strap}
-## ${site.description}
+# ${site.description}
 `,
   `
-For most people who own a dog or small pet, having someone look after them while away proves to be a major problem. This includes work, holidays or other long distance commitments. 
+> Specialising in bespoke kitchens, handmade fitted furniture and built in wardrobes – The Fitted Furniture Company is here to help you achieve a unique and wonderful solution for your home.
 
->Simply, who can take care of their dog, cat or small pet while the owner is away? 
+Our ethos is to design, make and install a beautiful piece of fitted furniture that is totally different and personal to you and your house. You can be assured that what is designed will be the best solution for you, your budget and your property, and not what someone else wants to sell you! Our design work is free of charge, and should help to visualise your ideas and give you a chance to be involved.
 `,
   `
-**${site.name}** primarily focuses on providing dog walks and day care. However, I also provide secondary services alongside this including garden breaks, pet taxi, cat sitting, small pet care and puppy socialisation time.
+${rating ? `My google rating is ${rating}!` : 'Loading google rating'}
+
+![Handmade kitchens](${kitchenImage})
 `,
 ];
 
@@ -32,13 +36,17 @@ const getImages = images => (images.length ? images.map(i => i.src) : [loadingIm
 function Home({ images, rating, tweets }) {
   console.log(tweets.map(twitterSelectors.getHashTags));
 
+  const copy = columnsCopy(rating);
+
   return (
-    <Layout className={styles.layout} slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
-      {rating ? `My google rating is ${rating}!` : 'Loading google rating'}
+    <Layout
+      className={styles.layout}
+      slideShowImages={[kitchenCopperImage].concat(getImages(images))}
+      heroCopy={copy[0]}
+    >
       <Columns>
-        <Blog />
-        <Content markdown={columnsCopy[1]} justifyText="justify" />
-        <Content markdown={columnsCopy[2]} justifyText="justify" />
+        <Content markdown={copy[1]} justifyText="justify" />
+        <Content markdown={copy[2]} justifyText="justify" />
       </Columns>
     </Layout>
   );

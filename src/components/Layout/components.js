@@ -14,6 +14,7 @@ export const CenteredContent = styled(Centered)`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  justify-content: flex-start;
 `;
 
 export const Header = styled.div`
@@ -35,10 +36,6 @@ export const LogoWrapper = styled.div`
   @media (min-width: 500px) {
     flex: 0 0 55%;
   }
-
-  /*@media (min-width: 769px) {*/
-  /*flex: 0 0 40%;*/
-  /*}*/
 `;
 
 export const TheFFCLogo = styled(Logo)`

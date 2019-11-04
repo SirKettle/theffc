@@ -20,9 +20,7 @@ const renderers = {
 };
 
 const markdown = `
-  ${site.description}
-
-  _${site.strap}_
+  _${site.description}_
   
   **Please call Will on ${site.mobile} or email [${site.email}](mailto:${site.email})**
 
