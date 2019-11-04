@@ -1,11 +1,10 @@
 import React from 'react';
 import Markdown from 'react-markdown';
-import styled from 'styled-components';
 import classnames from 'classnames';
 import visit from 'unist-util-visit';
 import typography from '../../css/typography.css';
 import styles from './Content.css';
-import { LargeParagraph, Paragraph } from '../Typography';
+import { BlockQuote, LargeParagraph } from '../Typography';
 
 const getHeadingClass = level => {
   return [typography.ben, typography.samson, typography.beau, typography.harvey][level - 1];
@@ -21,21 +20,6 @@ const stripImageParagraphPlugin = tree => {
 
   return tree;
 };
-
-const BlockQuote = styled.blockquote`
-  padding-left: 1rem;
-  border-left: solid 4px rgba(0, 0, 0, 0.1);
-
-  & > * {
-    font-style: italic;
-    opacity: 0.7;
-    font-size: 23px !important;
-  }
-
-  @media (min-width: 600px) {
-    padding-left: 2rem;
-  }
-`;
 
 const defaultRenderers = {
   heading: args =>

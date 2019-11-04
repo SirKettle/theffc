@@ -19,7 +19,7 @@ const itemStyles = css`
   margin: 0;
 
   @media (min-width: 600px) {
-    padding: 0 1rem;
+    padding: 0 ${({ theme }) => theme.gap}px;
     margin-right: 1px;
     font-size: inherit;
   }
@@ -62,7 +62,7 @@ export const NavigationComponent = styled.div`
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
   background: ${getBackgroundColor(0.95)};
   @media (min-width: 600px) {
-    padding: 0.1rem 2rem 0;
+    padding: 0.1rem ${({ theme }) => theme.gap * 2}px 0;
   }
 `;
 

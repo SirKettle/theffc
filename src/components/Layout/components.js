@@ -19,14 +19,14 @@ export const CenteredContent = styled(Centered)`
 
 export const Header = styled.div`
   flex: 0 0 auto;
-  padding: 1rem 1rem;
+  padding: ${({ theme }) => theme.gap}px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 
   @media (min-width: 600px) {
-    padding: 2rem 3rem;
+    padding: ${({ theme }) => `${theme.gap * 2}px ${theme.gap * 3}px`};
   }
 `;
 
@@ -56,10 +56,10 @@ export const Hero = styled.img`
 `;
 
 export const HeroContent = styled(Content)`
-  padding-top: 1rem;
+  padding-top: ${({ theme }) => theme.gap}px;
 
   @media (min-width: 600px) {
-    padding-top: 2rem;
+    padding-top: ${({ theme }) => theme.gap * 2}px;
   }
 `;
 
@@ -67,10 +67,10 @@ export const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
-  padding: 1rem 0 2rem;
+  padding: ${({ theme }) => `${theme.gap}px 0 ${theme.gap * 2}px`};
 
   @media (min-width: 600px) {
-    padding: 2rem 0 4rem;
+    padding: ${({ theme }) => `${theme.gap * 2}px 0 ${theme.gap * 4}px`};
   }
   a {
     color: #38bada; /* blue */
