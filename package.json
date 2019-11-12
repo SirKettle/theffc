@@ -103,6 +103,7 @@
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "js.cookie": "^0.0.4",
+    "polished": "^3.4.2",
     "ramda": "^0.26.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

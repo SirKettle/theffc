@@ -11,8 +11,12 @@ import * as googlePlaceActions from '../domains/googlePlace/actions';
 // import wallpaper from './assets/images/
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    background: ${({ theme }) => theme.color.canvas || theme.color.text};
+  }
+  
   body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -23,6 +27,8 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${({ theme }) => theme.typography.fontSize};
     font-weight: ${({ theme }) => theme.typography.fontWeight};
     line-height: ${({ theme }) => theme.typography.lineHeight};
+    max-width: 1400px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0 1px 1px rgba(0, 0, 0, 0.1);
   }
   
   #app {

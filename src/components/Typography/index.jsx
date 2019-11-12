@@ -39,7 +39,13 @@ export const BlockQuote = styled.blockquote`
   & > * {
     font-style: italic;
     opacity: 0.7;
-    font-size: ${({ theme }) => theme.typography.jaguar.fontSize} !important;
+    line-height: 1.6;
+    font-size: ${({ theme }) => theme.typography.lynx.fontSize} !important;
+    
+    
+    @media (min-width: 600px) {
+      font-size: ${({ theme }) => theme.typography.jaguar.fontSize} !important;
+    }
   }
 
   @media (min-width: 600px) {

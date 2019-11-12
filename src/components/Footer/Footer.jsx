@@ -21,7 +21,8 @@ const markdown = `
   
   **Please call Will on ${site.mobile} or email [${site.email}](mailto:${site.email})**
 
-  ### &copy; ${site.name} ${new Date().getUTCFullYear()}
+  Wood Farm Barn, High Green, Brooke, Norwich, Norfolk - NR15 1JE
+  
 `;
 
 const FooterWrapper = styled.div`
@@ -30,34 +31,69 @@ const FooterWrapper = styled.div`
   color: ${({ theme }) => theme.color.footerText};
   background: ${({ theme }) => theme.color.footerBackground};
 
-  padding: ${({ theme }) => `${theme.gap * 4}px 0`};
+  padding: ${({ theme }) => `${theme.gap * 3}px 0`};
 
   @media (min-width: 600px) {
-    padding: ${({ theme }) => `${theme.gap * 6}px 0`};
+    padding: ${({ theme }) => `${theme.gap * 4}px 0`};
+  }
+
+  a {
+    color: ${({ theme }) => theme.color.link};
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: ${({ theme }) => theme.color.linkHover};
+    text-decoration: underline;
   }
 `;
 
+const Map = styled.iframe`
+  margin: ${({ theme }) => theme.gap * 2}px 0;
+  height: 300px;
+  border-radius: 10px;
+
+  @media (min-width: 600px) {
+    height: 400px;
+  }
+
+  @media (min-width: 1000px) {
+    height: 600px;
+  }
+`;
+
+const fullYear = new Date().getUTCFullYear();
+
 const Footer = ({ className }) => (
-  <FooterWrapper>
+  <FooterWrapper className={className}>
     <FixedWidthCentral>
-      <div className={styles.socialLinks}>
-        <div className={styles.findUsOnFacebook}>
-          <a className={styles.findUsOnFacebookLink} href={site.facebookPage} rel="noopener noreferrer" target="_blank">
-            <img src={findUsOnFacebookLogo} alt="Find us on Facebook" className={styles.findUsOnFacebookLogo} />
-          </a>
-        </div>
-        <a className={styles.instagramLink} href={site.instagramPage} rel="noopener noreferrer" target="_blank">
-          <img src={instagramLogo} alt="Find us on Instagram" className={styles.instagramLogo} />
-        </a>
-        <a className={styles.twitterLink} href={site.twitterPage} rel="noopener noreferrer" target="_blank">
-          <img src={twitterLogo} alt="Follow us on Twitter" className={styles.twitterLogo} />
-        </a>
-      </div>
       <Content markdown={markdown} renderers={renderers} />
+      <Map
+        width="100%"
+        height="450"
+        frameBorder="0"
+        style={{ border: 0 }}
+        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ02KpLWjl2UcRFXEMUKcaNVA&key=AIzaSyAAuJJI9BKINNLj1ekKfll5akpzWyoWALg&zoom=11"
+        allowFullScreen
+      />
+      <Content markdown={`### &copy; ${site.name} ${fullYear}`} renderers={renderers} />
     </FixedWidthCentral>
   </FooterWrapper>
 );
+// {/*<div className={styles.socialLinks}>*/}
+// {/*  <a className={styles.instagramLink} href={site.instagramPage} rel="noopener noreferrer" target="_blank">*/}
+// {/*    <img src={instagramLogo} alt="Find us on Instagram" className={styles.instagramLogo} />*/}
+// {/*  </a>*/}
+// {/*  <a className={styles.twitterLink} href={site.twitterPage} rel="noopener noreferrer" target="_blank">*/}
+// {/*    <img src={twitterLogo} alt="Follow us on Twitter" className={styles.twitterLogo} />*/}
+// {/*  </a>*/}
+// {/*</div>*/}
 
+// {/*<div className={styles.findUsOnFacebook}>*/}
+// {/*  <a className={styles.findUsOnFacebookLink} href={site.facebookPage} rel="noopener noreferrer" target="_blank">*/}
+// {/*    <img src={findUsOnFacebookLogo} alt="Find us on Facebook" className={styles.findUsOnFacebookLogo} />*/}
+// {/*  </a>*/}
+// {/*</div>*/}
 Footer.defaultProps = {
   className: null,
 };

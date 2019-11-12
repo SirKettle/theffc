@@ -32,7 +32,7 @@ export const Header = styled.div`
 
 export const LogoWrapper = styled.div`
   flex: 0 0 100%;
-  color: #080505;
+  color: ${({ theme }) => theme.color.text};
   @media (min-width: 500px) {
     flex: 0 0 55%;
   }
@@ -73,12 +73,12 @@ export const MainContent = styled.div`
     padding: ${({ theme }) => `${theme.gap * 2}px 0 ${theme.gap * 4}px`};
   }
   a {
-    color: #38bada; /* blue */
+    color: ${({ theme }) => theme.color.link};
     text-decoration: none;
   }
 
   a:hover {
-    color: #38bada; /* blue */
+    color: ${({ theme }) => theme.color.linkHover};
     text-decoration: underline;
   }
 `;

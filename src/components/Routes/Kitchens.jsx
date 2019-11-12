@@ -7,7 +7,7 @@ import Columns from '../Columns/Columns';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
 // import * as site from '../../constants/site';
 // import Blog from '../Blog/Blog';
-import * as site from '../../constants/site';
+// import * as site from '../../constants/site';
 import kitchenImage1 from '../../assets/images/content/IMG_5320.jpg';
 import kitchenImage2 from '../../assets/images/content/kitchen-methods.jpg';
 import kitchenImage3 from '../../assets/images/content/kitchen-methods-chisel.jpg';

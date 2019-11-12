@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
+import { transparentize } from 'polished';
 import Button from '../../components/Button/Button';
 import Centered from '../../components/Layout/Centered';
-
-const getBackgroundColor = (opacity = 1) => `hsla(49, 85%, 97%, ${opacity})`;
 
 const itemStyles = css`
   display: block;
@@ -40,10 +39,11 @@ export const NavButton = styled(Button)`
   border-bottom: solid 4px transparent;
 
   &:hover {
-    border-bottom-color: ${getBackgroundColor(0.3)};
+    border-bottom-color: ${({ theme }) => transparentize(0.7, theme.color.background)};
   }
 
-  ${({ isSelected }) => (isSelected ? `border-bottom-color: ${getBackgroundColor(0.6)}` : '')}
+  ${({ isSelected, theme }) =>
+    isSelected ? `border-bottom-color: ${transparentize(0.4, theme.color.background)}` : ''}
 `;
 
 export const NavigationComponent = styled.div`
@@ -59,8 +59,8 @@ export const NavigationComponent = styled.div`
   z-index: 9;
   padding: 0.1rem 0.5rem 0;
   border-bottom: solid 4px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
-  background: ${getBackgroundColor(0.95)};
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.1);
+  background: ${({ theme }) => transparentize(0.025, theme.color.background)};
   @media (min-width: 600px) {
     padding: 0.1rem ${({ theme }) => theme.gap * 2}px 0;
   }

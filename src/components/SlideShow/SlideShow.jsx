@@ -28,7 +28,7 @@ function useInterval(callback, delay) {
 const getNextIndex = (currentImageIndex, images) =>
   currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
 
-function SlideShow({ images, className = null, displayTime = 4000, fadeTime = 1500, tick = 100 }) {
+function SlideShow({ images, className = null, displayTime = 10000, fadeTime = 1500, tick = 100 }) {
   const [timer, setTimer] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [nextImageIndex, setNextImageIndex] = useState(getNextIndex(currentImageIndex, images));

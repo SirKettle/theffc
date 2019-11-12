@@ -24,7 +24,7 @@ const PaddingContainer = styled.div`
     noPadding
       ? ''
       : css`
-          padding: 0 ${({ theme }) => theme.gap}px;
+          padding: 0 ${({ theme }) => theme.gap * 1}px;
 
           @media (min-width: 600px) {
             padding: 0 ${({ theme }) => theme.gap * 3}px;
