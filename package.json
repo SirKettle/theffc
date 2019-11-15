@@ -87,7 +87,7 @@
     "swipe-js-iso": "^2.0.3",
     "url-loader": "^0.5.9",
     "webpack": "2",
-    "webpack-dev-server": "2",
+    "webpack-dev-server": "3",
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
