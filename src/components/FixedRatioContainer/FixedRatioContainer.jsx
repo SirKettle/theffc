@@ -1,28 +1,31 @@
 import React from 'react';
-import classnames from 'classnames';
-import styles from './FixedRatioContainer.css';
+import styled from 'styled-components';
 
-const FixedRatioContainer = ({
-  className,
-  width,
-  height,
-  children
-}) => (
-  <div
-    className={classnames(styles.fixedRatioContainer, className)}
-    style={{ paddingTop: `${(height / width) * 100}%` }}
-  >
-    <div className={styles.fixedRatioContainerInner}>
-      { children }
-    </div>
-  </div>
+const Wrapper = styled.div`
+  height: 0;
+  overflow: hidden;
+  position: relative;
+`;
+
+const InnerWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`;
+
+const FixedRatioContainer = ({ className, width, height, children }) => (
+  <Wrapper className={className} style={{ paddingTop: `${(height / width) * 100}%` }}>
+    <InnerWrapper>{children}</InnerWrapper>
+  </Wrapper>
 );
 
 FixedRatioContainer.defaultProps = {
   className: null,
   image: null,
   tag: null,
-  label: null
+  label: null,
 };
 
 export default FixedRatioContainer;

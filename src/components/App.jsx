@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
 import styled, { createGlobalStyle } from 'styled-components';
 import NotFound from './NotFound';
+import { Layout } from './Layout';
 
 import '../css/reset.css';
 import { components } from '../routes';
@@ -78,7 +79,9 @@ function App({ route, loadTweets, loadGooglePlace }) {
   return (
     <Fragment>
       <GlobalStyle />
-      <StyledApp>{React.createElement(components[segment] || NotFound)}</StyledApp>
+      <StyledApp>
+        <Layout>{React.createElement(components[segment] || NotFound)}</Layout>
+      </StyledApp>
     </Fragment>
   );
 }

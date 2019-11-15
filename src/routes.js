@@ -2,7 +2,6 @@ import { reduce, pick } from 'ramda';
 
 import Home from './components/Routes/Home';
 import Kitchens from './components/Routes/Kitchens';
-import Testimonials from './components/Routes/Testimonials';
 import Bedroom from './components/Routes/Bedroom';
 import Living from './components/Routes/Living';
 
@@ -11,7 +10,6 @@ export const ROUTES = {
   KITCHENS: { name: 'kitchens', path: '/kitchens', component: Kitchens, label: 'Kitchens', inNav: true },
   BEDROOM: { name: 'bedroom', path: '/bedroom', component: Bedroom, label: 'Bedroom', inNav: true },
   LIVING: { name: 'living', path: '/living', component: Living, label: 'Living', inNav: true },
-  // TESTIMONIALS: { name: 'testimonials', path: '/testimonials', component: Testimonials, label: 'Testimonials', inNav: true }
 };
 
 const composeLink = route => pick(['name', 'label'], route);

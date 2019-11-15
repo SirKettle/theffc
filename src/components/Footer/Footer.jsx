@@ -3,11 +3,11 @@ import classnames from 'classnames';
 import styled from 'styled-components';
 import Content from '../Content/Content';
 import typography from '../../css/typography.css';
-import styles from './Footer.css';
+// import styles from './Footer.css';
 import * as site from '../../constants/site';
-import findUsOnFacebookLogo from '../../assets/FB-FindUsonFacebook-online-512.png';
-import instagramLogo from '../../assets/IG_Glyph_Fill.jpg';
-import twitterLogo from '../../assets/Twitter_Logo_Blue.jpg';
+// import findUsOnFacebookLogo from '../../assets/FB-FindUsonFacebook-online-512.png';
+// import instagramLogo from '../../assets/IG_Glyph_Fill.jpg';
+// import twitterLogo from '../../assets/Twitter_Logo_Blue.jpg';
 import { FixedWidthCentral } from '../Layout/Centered';
 
 const renderers = {
@@ -98,4 +98,4 @@ Footer.defaultProps = {
   className: null,
 };
 
-export default Footer;
+export default React.memo(Footer);

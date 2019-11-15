@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Connected as Navigation } from '../../containers/Navigation/';
 import SlideShow from '../SlideShow/SlideShow';
 import FixedRatioContainer from '../FixedRatioContainer/FixedRatioContainer';
@@ -16,7 +16,7 @@ import {
   TheFFCLogo,
 } from './components';
 
-const Index = ({ className, children, slideShowImages, hero, heroCopy, heroCopyClassName }) => (
+export const Layout = ({ className, children }) => (
   <Root className={className}>
     <Header>
       <CenteredContent isFlex>
@@ -28,6 +28,17 @@ const Index = ({ className, children, slideShowImages, hero, heroCopy, heroCopyC
       </CenteredContent>
     </Header>
     <Navigation />
+    {children}
+    <LayoutFooter />
+  </Root>
+);
+
+Layout.defaultProps = {
+  className: null,
+};
+
+const PageLayout = ({ children, slideShowImages, hero, heroCopy, heroCopyClassName }) => (
+  <Fragment>
     <HeroWrapper>
       {slideShowImages ? <SlideShow images={slideShowImages} /> : null}
       {hero ? <Hero src={hero} alt="hero" /> : null}
@@ -40,16 +51,14 @@ const Index = ({ className, children, slideShowImages, hero, heroCopy, heroCopyC
     <FixedWidthCentral>
       <MainContent>{children}</MainContent>
     </FixedWidthCentral>
-    <LayoutFooter />
-  </Root>
+  </Fragment>
 );
 
-Index.defaultProps = {
-  className: null,
+PageLayout.defaultProps = {
   slideShowImages: null,
   hero: null,
   heroCopy: null,
   heroCopyClassName: null,
 };
 
-export default Index;
+export default PageLayout;

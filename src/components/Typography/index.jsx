@@ -24,7 +24,9 @@ export const Headline = styled.h2(getFontStyles('tiger'));
 
 export const Heading = styled.h3(getFontStyles('lion'));
 
-export const Quote = styled.q(getFontStyles('jaguar'));
+export const SubHeading = styled.h3(getFontStyles('jaguar'));
+
+export const Quote = styled.q(getFontStyles('puma'));
 
 export const LargeParagraph = styled.p(getFontStyles('lynx'));
 
@@ -41,8 +43,7 @@ export const BlockQuote = styled.blockquote`
     opacity: 0.7;
     line-height: 1.6;
     font-size: ${({ theme }) => theme.typography.lynx.fontSize} !important;
-    
-    
+
     @media (min-width: 600px) {
       font-size: ${({ theme }) => theme.typography.jaguar.fontSize} !important;
     }
@@ -51,6 +52,20 @@ export const BlockQuote = styled.blockquote`
   @media (min-width: 600px) {
     padding-left: ${({ theme }) => theme.gap * 2}px;
   }
+`;
+
+export const UnorderedList = styled.ul`
+  paddingleft: ${({ theme }) => theme.gap * 2}px;
+`;
+
+export const OrderedList = styled.ol`
+  paddingleft: ${({ theme }) => theme.gap * 2}px;
+`;
+
+export const ListItem = styled.li`
+  margin: ${({ theme }) => theme.margin} 0;
+  list-style-position: outside;
+  text-align: left;
 `;
 
 export const Hr = styled.div`

@@ -3,12 +3,23 @@ import { darken, desaturate, lighten } from 'polished';
 const typographyStyles = {
   tiger: {
     fontSize: '70px',
+    fontFamily: "'Playfair Display', serif",
+    lineHeight: 1.3,
   },
   lion: {
     fontSize: '40px',
+    fontFamily: "'Playfair Display', serif",
+    lineHeight: 1.3,
   },
   jaguar: {
-    fontSize: '25px',
+    fontSize: '30px',
+    fontFamily: "'Playfair Display', serif",
+    lineHeight: 1.3,
+  },
+  puma: {
+    fontSize: '23px',
+    fontFamily: "'Playfair Display', serif",
+    lineHeight: 1.3,
   },
   lynx: {
     fontSize: '16px',
@@ -53,7 +64,7 @@ export const blue = {
     footerText: '#f5f8fa',
     footerBackground: '#092b38',
     link: '#00bbee',
-    linkHover: '#22eeff',
+    linkHover: '#009DC8',
   },
   typography: {
     fontFamily: 'helvetica, arial',
@@ -66,7 +77,6 @@ export const blue = {
 
 export default blue;
 // export default cream;
-
 
 //
 // export default {

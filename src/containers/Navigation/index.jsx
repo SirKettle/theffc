@@ -40,7 +40,7 @@ export const Index = ({
             );
           })}
         </Menu>
-        <NavItem>{site.mobile}</NavItem>
+        <NavItem>☎ {site.mobile}</NavItem>
       </CenteredContent>
     </NavigationComponent>
   );

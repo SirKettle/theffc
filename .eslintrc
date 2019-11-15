@@ -21,6 +21,7 @@
   "rules": {
     "arrow-parens": 0,
     "comma-dangle": ["error", "only-multiline"],
+    "camelcase": "off",
     "quotes": [0, "single"],
     "no-undef": 1,
     "global-strict": 0,

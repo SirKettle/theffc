@@ -2,13 +2,9 @@ import React from 'react';
 import Markdown from 'react-markdown';
 import classnames from 'classnames';
 import visit from 'unist-util-visit';
-import typography from '../../css/typography.css';
+import styled from 'styled-components';
 import styles from './Content.css';
-import { BlockQuote, LargeParagraph } from '../Typography';
-
-const getHeadingClass = level => {
-  return [typography.ben, typography.samson, typography.beau, typography.harvey][level - 1];
-};
+import { BlockQuote, Heading, LargeParagraph, ListItem, OrderedList, SubHeading, UnorderedList } from '../Typography';
 
 const stripImageParagraphPlugin = tree => {
   visit(tree, 'paragraph', (node, index, parent) => {
@@ -21,27 +17,33 @@ const stripImageParagraphPlugin = tree => {
   return tree;
 };
 
+const Image = styled.img`
+  display: block;
+  width: 100%;
+  margin: ${({ theme }) => theme.margin} 0;
+`;
+
 const defaultRenderers = {
-  heading: args =>
-    React.createElement(
-      `h${args.level}`,
-      {
-        className: classnames(typography.margins, getHeadingClass(args.level)),
-      },
-      args.children,
-    ),
+  heading: ({ children, level }) => {
+    const tag = `h${level}`;
+    switch (level) {
+      case 1:
+      case 2:
+        return <Heading as={tag}>{children}</Heading>;
+      default:
+        return <SubHeading as={tag}>{children}</SubHeading>;
+    }
+  },
   paragraph: args => <LargeParagraph>{args.children}</LargeParagraph>,
-  listItem: args => <li className={classnames(typography.bottomMargin, typography.hattie)}>{args.children}</li>,
-  list: args =>
-    React.createElement(
-      args.ordered ? 'ol' : 'ul',
-      {
-        className: classnames(styles.list, args.ordered ? styles.ol : styles.ul),
-      },
-      args.children,
-    ),
+  listItem: ({ children }) => <ListItem>{children}</ListItem>,
+  list: ({ children, ordered }) => {
+    if (ordered) {
+      return <OrderedList>{children}</OrderedList>;
+    }
+    return <UnorderedList>{children}</UnorderedList>;
+  },
   blockquote: args => <BlockQuote>{args.children}</BlockQuote>,
-  image: args => <img className={classnames(typography.bottomMargin, styles.image)} src={args.src} alt={args.alt} />,
+  image: ({ alt, src }) => <Image src={src} alt={alt} />,
   link: args => {
     const newTab = args.href.indexOf('http') !== -1;
     return (
