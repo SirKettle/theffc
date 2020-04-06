@@ -25,8 +25,6 @@ Our ethos is to design, make and install a beautiful piece of fitted furniture t
 `,
 ];
 
-const loadingImage = '';
-
 const GoogleReviews = styled.div`
   display: flex;
   flex-wrap: wrap;

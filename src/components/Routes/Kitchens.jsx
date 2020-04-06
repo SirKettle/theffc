@@ -52,7 +52,7 @@ Some companies use cheap copies, we use only the best (German again)
 `,
 ];
 
-const getImages = images => (images.length ? images.map(i => i.src) : ['']);
+const getImages = images => images.map(i => i.src).concat(kitchenCopperImage);
 
 // {/*<Blog loadingContent={'### What have I been up to...?'} preContent={'### This is what I’ve been up to'} />*/}
 function Kitchens({ images }) {
