@@ -3,7 +3,7 @@ import { times } from 'ramda';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { routeNodeSelector } from 'redux-router5';
-import Layout from '../Layout';
+import { PageLayout } from '../Layout';
 // import Content from '../Content/Content';
 // import Columns from '../Columns/Columns';
 import * as site from '../../constants/site';
@@ -70,13 +70,13 @@ const ReviewText = styled.p`
   font-style: italic;
 `;
 
-const getImages = images => (images.length ? images.map(i => i.src) : [loadingImage]);
+const getImages = images => [kitchenCopperImage].concat(images.map(i => i.src));
 
 function Home({ images, googleRating, reviewCount, reviews, tweets }) {
   console.log(tweets.map(twitterSelectors.getHashTags));
 
   return (
-    <Layout slideShowImages={[kitchenCopperImage].concat(getImages(images))} heroCopy={columnsCopy[0]}>
+    <PageLayout slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
       {googleRating ? (
         <div>
           <Heading>We also make happy customers</Heading>
@@ -100,7 +100,7 @@ function Home({ images, googleRating, reviewCount, reviews, tweets }) {
           </GoogleReviews>
         </div>
       ) : null}
-    </Layout>
+    </PageLayout>
   );
 }
 

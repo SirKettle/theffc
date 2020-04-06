@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { actions as routerActions } from 'redux-router5';
+import useWindowScroll from '@react-hook/window-scroll';
+import { useWindowWidth } from '@react-hook/window-size';
 import * as routerSelectors from '../../domains/router/routerSelectors';
 import * as site from '../../constants/site';
 import { navItemLinks } from '../../routes';
-import { CenteredContent, Menu, NavButton, NavigationComponent, NavItem } from './components';
+import {
+  CloseButton,
+  Content,
+  LogoWrapper,
+  Menu,
+  NarrowLogoWrapper,
+  NarrowMenu,
+  NarrowMenuContainer,
+  NarrowNavigationComponent,
+  NarrowNavItem,
+  NavButton,
+  NavigationComponent,
+  OpenButton,
+  PhoneNumber,
+  TheFFCLogo,
+} from './components';
+import FixedRatioContainer from '../../components/FixedRatioContainer/FixedRatioContainer';
+import { FixedWidthCentral } from '../../components/Layout/Centered';
+import CloseIcon from '../../assets/images/svg/close';
+import MenuIcon from '../../assets/images/svg/burger';
+
+const MOBILE_MAX = 900;
 
 const mapStateToProps = state => ({
   activeRoute: routerSelectors.activeRouteSelector(state),
@@ -15,38 +38,110 @@ const mapDispatchToProps = dispatch => ({
   navigateTo: (name, params) => dispatch(routerActions.navigateTo(name, params)),
 });
 
-export const Index = ({
+export const Navigation = ({
   className,
   activeRoute,
   // track,
   navigateTo,
 }) => {
+  const windowWidth = useWindowWidth();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeRoute]);
+
+  return windowWidth > MOBILE_MAX ? (
+    <WideScreen className={className} activeRoute={activeRoute} navigateTo={navigateTo} />
+  ) : (
+    <NarrowScreen className={className} activeRoute={activeRoute} navigateTo={navigateTo} />
+  );
+};
+
+export const WideScreen = ({
+  className,
+  activeRoute,
+  // track,
+  navigateTo,
+}) => {
+  const scrollY = useWindowScroll(15);
+
   return (
-    <NavigationComponent className={className}>
-      <CenteredContent isFlex>
-        <Menu>
-          {navItemLinks.map(headerLink => {
-            const isSelected = activeRoute && headerLink.name === activeRoute.name;
-            return (
-              <NavButton
-                key={headerLink.name}
-                onClick={() => {
-                  navigateTo(headerLink.name);
-                }}
-                isSelected={isSelected}
-              >
-                {headerLink.label}
-              </NavButton>
-            );
-          })}
-        </Menu>
-        <NavItem>☎ {site.mobile}</NavItem>
-      </CenteredContent>
+    <NavigationComponent className={className} isScrolled={scrollY > 0} scrollY={scrollY}>
+      <FixedWidthCentral>
+        <Content>
+          <LogoWrapper>
+            <FixedRatioContainer width={400} height={64}>
+              <TheFFCLogo />
+            </FixedRatioContainer>
+          </LogoWrapper>
+          <Menu>
+            {navItemLinks.map(headerLink => {
+              const isSelected = activeRoute && headerLink.name === activeRoute.name;
+              return (
+                <NavButton
+                  key={headerLink.name}
+                  onClick={() => {
+                    navigateTo(headerLink.name);
+                  }}
+                  isSelected={isSelected}
+                  disabled={isSelected}
+                >
+                  {headerLink.label}
+                </NavButton>
+              );
+            })}
+          </Menu>
+          <PhoneNumber>{site.mobile}</PhoneNumber>
+        </Content>
+      </FixedWidthCentral>
     </NavigationComponent>
   );
 };
 
-Index.defaultProps = {
+export const NarrowScreen = ({
+  className,
+  activeRoute,
+  // track,
+  navigateTo,
+}) => {
+  const [menuVisible, setMenuVisible] = useState(false);
+  return (
+    <NarrowNavigationComponent className={className} isScrolled={scrollY > 0}>
+      <NarrowLogoWrapper>
+        <FixedRatioContainer width={400} height={64}>
+          <TheFFCLogo />
+        </FixedRatioContainer>
+      </NarrowLogoWrapper>
+      <OpenButton onClick={() => setMenuVisible(true)}>
+        <MenuIcon />
+      </OpenButton>
+      <NarrowMenuContainer visible={menuVisible}>
+        <NarrowMenu>
+          {navItemLinks.map(headerLink => {
+            const isSelected = activeRoute && headerLink.name === activeRoute.name;
+            return (
+              <NarrowNavItem
+                key={headerLink.name}
+                onClick={() => {
+                  navigateTo(headerLink.name);
+                  setMenuVisible(false);
+                }}
+                isSelected={isSelected}
+              >
+                {headerLink.label}
+              </NarrowNavItem>
+            );
+          })}
+        </NarrowMenu>
+        <CloseButton onClick={() => setMenuVisible(false)} width={'25px'} height={'25px'}>
+          <CloseIcon />
+        </CloseButton>
+      </NarrowMenuContainer>
+    </NarrowNavigationComponent>
+  );
+};
+
+Navigation.defaultProps = {
   // track: () => {},
   navigateTo: () => {},
 };
@@ -54,4 +149,4 @@ Index.defaultProps = {
 export const Connected = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Index);
+)(Navigation);

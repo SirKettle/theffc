@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
-import Layout from '../Layout';
+import { PageLayout } from '../Layout';
 import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
@@ -12,6 +12,7 @@ import bedroomImage4 from '../../assets/images/content/bedroom-4.jpg';
 import bedroomImage5 from '../../assets/images/content/bedroom-5.jpg';
 import bedroomImage6 from '../../assets/images/content/bedroom-6.jpg';
 import bedroomImage7 from '../../assets/images/content/bedroom-7.jpg';
+import fallbackImage from '../../assets/images/content/bedroom-fallback.jpg';
 
 const columnsCopy = [
   `
@@ -64,14 +65,16 @@ We can make modern looking wardrobes utilizing choice veneers, and a slick clean
 `,
 ];
 
+const getImages = images => [fallbackImage].concat(images.map(i => i.src));
+
 function Bedroom({ images }) {
   return (
-    <Layout hero={images && images[0] && images[0].src} heroCopy={columnsCopy[0]}>
+    <PageLayout slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
       <Columns>
         <Content markdown={columnsCopy[1]} />
         <Content markdown={columnsCopy[2]} />
       </Columns>
-    </Layout>
+    </PageLayout>
   );
 }
 

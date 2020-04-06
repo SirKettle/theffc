@@ -17,19 +17,6 @@ export const CenteredContent = styled(Centered)`
   justify-content: flex-start;
 `;
 
-export const Header = styled.div`
-  flex: 0 0 auto;
-  padding: ${({ theme }) => theme.gap}px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  @media (min-width: 600px) {
-    padding: ${({ theme }) => `${theme.gap * 2}px ${theme.gap * 3}px`};
-  }
-`;
-
 export const LogoWrapper = styled.div`
   flex: 0 0 100%;
   color: ${({ theme }) => theme.color.text};

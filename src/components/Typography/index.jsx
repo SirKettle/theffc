@@ -20,19 +20,43 @@ export const getFontStyles = key => ({ theme, color, margin }) => ({
 
 export const Copy = styled.span(getFontStyles());
 
-export const Headline = styled.h2(getFontStyles('tiger'));
+export const Headline = styled.h2`
+  ${getFontStyles('lion')}
+  @media (min-width: 600px) {
+    ${getFontStyles('tiger')}
+`;
 
-export const Heading = styled.h3(getFontStyles('lion'));
+export const Heading = styled.h3`
+  ${getFontStyles('jaguar')}
+  @media (min-width: 600px) {
+    ${getFontStyles('lion')}
+`;
 
-export const SubHeading = styled.h3(getFontStyles('jaguar'));
+export const SubHeading = styled.h3`
+  ${getFontStyles('puma')}
+  @media (min-width: 600px) {
+    ${getFontStyles('jaguar')}
+`;
 
-export const Quote = styled.q(getFontStyles('puma'));
+export const Quote = styled.q`
+  ${getFontStyles('lynx')}
+  @media (min-width: 600px) {
+    ${getFontStyles('puma')}
+`;
 
-export const LargeParagraph = styled.p(getFontStyles('lynx'));
+export const LargeParagraph = styled.p`
+  ${getFontStyles('pussy')}
+  @media (min-width: 600px) {
+    ${getFontStyles('lynx')}
+`;
 
-export const Paragraph = styled.p(getFontStyles('pussy'));
+export const Paragraph = styled.p`
+  ${getFontStyles('pussy')}
+`;
 
-export const SmallPrint = styled.p(getFontStyles('kitten'));
+export const SmallPrint = styled.p`
+  ${getFontStyles('kitten')}
+`;
 
 export const BlockQuote = styled.blockquote`
   padding-left: ${({ theme }) => theme.gap}px;

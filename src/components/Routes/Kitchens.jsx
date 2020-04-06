@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
-import Layout from '../Layout';
+import { PageLayout } from '../Layout';
 import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
@@ -13,6 +13,7 @@ import kitchenImage2 from '../../assets/images/content/kitchen-methods.jpg';
 import kitchenImage3 from '../../assets/images/content/kitchen-methods-chisel.jpg';
 import kitchenImage4 from '../../assets/images/content/kitchen019.jpg';
 import kitchenImage5 from '../../assets/images/content/IMG_4697.jpg';
+import kitchenCopperImage from '../../assets/images/content/kitchen-copper.jpg';
 
 // ![${site.name} animals](${logoAnimals})
 const columnsCopy = [
@@ -51,22 +52,24 @@ Some companies use cheap copies, we use only the best (German again)
 `,
 ];
 
+const getImages = images => (images.length ? images.map(i => i.src) : ['']);
+
 // {/*<Blog loadingContent={'### What have I been up to...?'} preContent={'### This is what I’ve been up to'} />*/}
 function Kitchens({ images }) {
   return (
-    <Layout hero={images && images[0] && images[0].src} heroCopy={columnsCopy[0]}>
+    <PageLayout slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
       <Columns>
         <Content markdown={columnsCopy[1]} />
         <Content markdown={columnsCopy[2]} />
       </Columns>
-    </Layout>
+    </PageLayout>
   );
 }
 
 const mapStateToProps = state => ({
   ...routeNodeSelector('')(state),
-  images: twitterSelectors.imageSelector(state),
-  // images: twitterSelectors.imageWithHashTagSelector('kitchen')(state)
+  // images: twitterSelectors.imageSelector(state),
+  images: twitterSelectors.imageWithHashTagSelector('kitchen')(state),
 });
 
 export default connect(mapStateToProps)(Kitchens);

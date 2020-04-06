@@ -91,6 +91,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "@react-hook/window-scroll": "^1.0.4",
     "@react-hook/window-size": "^1.0.8",
     "@storybook/addon-actions": "^3.1.8",
     "@storybook/addon-knobs": "^3.1.6",

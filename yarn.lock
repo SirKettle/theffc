@@ -154,12 +154,20 @@
   dependencies:
     "@essentials/request-timeout" "^1.0.1"
 
-"@react-hook/throttle@^1.0.4":
+"@react-hook/throttle@^1.0.4", "@react-hook/throttle@^1.0.5":
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/@react-hook/throttle/-/throttle-1.0.5.tgz#f5b9bad8c6ccb80a309d86e072db5720dee30a0b"
   integrity sha512-PhXhTsFbfdn+0FmkgVA8Qyrtsd4CDlg9oCgEqRyEAcLK2c0ShLI5xK76Q46TLhTysJi61Db4wg6BZ1+aFEvcCA==
   dependencies:
     "@essentials/request-timeout" "^1.0.1"
+
+"@react-hook/window-scroll@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@react-hook/window-scroll/-/window-scroll-1.0.4.tgz#7c1e528668591ad7f6d5d0b2367480c9b9d092a0"
+  integrity sha512-VCXf/KCXafoJoaeKn5gfuDJ5CDfYCRzZJuZ351QINYup5s4UwppZ6oh3UyJLWE6SQI+QoI2EA2joYP12/hWkJQ==
+  dependencies:
+    "@react-hook/throttle" "^1.0.5"
+    empty "^0.10.1"
 
 "@react-hook/window-size@^1.0.8":
   version "1.0.8"

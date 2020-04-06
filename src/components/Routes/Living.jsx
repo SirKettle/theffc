@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { routeNodeSelector } from 'redux-router5';
-import Layout from '../Layout';
+import { PageLayout } from '../Layout';
 import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
@@ -14,6 +14,7 @@ import image6 from '../../assets/images/content/living/06.jpg';
 import image7 from '../../assets/images/content/living/07.jpg';
 import image8 from '../../assets/images/content/living/08.jpg';
 import image9 from '../../assets/images/content/living/09.jpg';
+import fallbackImage from '../../assets/images/content/living-fallback.jpg';
 
 const columnsCopy = [
   `
@@ -62,14 +63,16 @@ You may have a Georgian or Victorian house, and opt for a piece of furniture tha
 `,
 ];
 
+const getImages = images => [fallbackImage].concat(images.map(i => i.src));
+
 function Living({ images }) {
   return (
-    <Layout hero={images && images[0] && images[0].src} heroCopy={columnsCopy[0]}>
+    <PageLayout slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
       <Columns>
         <Content markdown={columnsCopy[1]} />
         <Content markdown={columnsCopy[2]} />
       </Columns>
-    </Layout>
+    </PageLayout>
   );
 }
 

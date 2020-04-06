@@ -13,7 +13,7 @@ const distPath = path.join(__dirname, './dist');
 const loadPlugins = () => {
   const GLOBALS = {
     'process.env.NODE_ENV': JSON.stringify(env),
-    __DEV__: env === 'development'
+    __DEV__: env === 'development',
   };
 
   const plugins = [
@@ -22,16 +22,16 @@ const loadPlugins = () => {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
-      template: './index.html'
+      template: './index.html',
     }),
-    new webpack.NamedModulesPlugin()
+    new webpack.NamedModulesPlugin(),
   ];
 
   if (isProd) {
     plugins.push(
       new webpack.LoaderOptionsPlugin({
         minimize: true,
-        debug: false
+        debug: false,
       }),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
@@ -44,25 +44,19 @@ const loadPlugins = () => {
           dead_code: true,
           evaluate: true,
           if_return: true,
-          join_vars: true
+          join_vars: true,
         },
         output: {
-          comments: false
-        }
-      })
+          comments: false,
+        },
+      }),
     );
   } else {
     plugins.push(new webpack.HotModuleReplacementPlugin());
   }
-  plugins.push(
-    new ExtractTextPlugin('[name].bundle-[chunkhash].css')
-  );
+  plugins.push(new ExtractTextPlugin('[name].bundle-[chunkhash].css'));
 
-  plugins.push(
-    new CopyWebpackPlugin([
-      {from:'src/assets',to:'images'} 
-    ])
-  );
+  plugins.push(new CopyWebpackPlugin([{ from: 'src/assets', to: 'images' }]));
 
   return plugins;
 };
@@ -84,11 +78,11 @@ const config = {
   entry: getAppEntryPoints(),
   resolve: {
     modules: ['src', 'node_modules'],
-    extensions: ['.json', '.js', '.jsx', 'css']
+    extensions: ['.json', '.js', '.jsx', 'css'],
   },
   output: {
     path: distPath,
-    filename: isProd ? 'bundle-[chunkhash].js' : 'bundle.js'
+    filename: isProd ? 'bundle-[chunkhash].js' : 'bundle.js',
   },
   plugins: loadPlugins(),
   module: {
@@ -97,12 +91,12 @@ const config = {
         enforce: 'pre',
         test: /\.(js|jsx)$/,
         loaders: ['eslint-loader'],
-        include: srcPath
+        include: srcPath,
       },
       {
         test: /\.(js|jsx)$/,
         include: srcPath,
-        loaders: ['babel-loader']
+        loaders: ['babel-loader'],
       },
       {
         test: /\.css$/,
@@ -113,31 +107,33 @@ const config = {
               options: {
                 importLoaders: 1,
                 modules: true,
-                localIdentName: '[name]-[local]-[hash:base64:5]'
-              }
+                localIdentName: '[name]-[local]-[hash:base64:5]',
+              },
             },
             {
               loader: 'postcss-loader',
               options: {
                 config: {
-                  path: './postcss.config.js'
-                }
-              }
-            }
-          ]
-        })
+                  path: './postcss.config.js',
+                },
+              },
+            },
+          ],
+        }),
       },
       {
-        test: /\.(png|jp(e*)g|svg)$/,  
-        use: [{
-          loader: 'url-loader',
-          options: { 
-            limit: 8000, // Convert images < 8kb to base64 strings
-            name: 'images/[hash]-[name].[ext]'
-          } 
-        }]
-      }
-    ]
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8000, // Convert images < 8kb to base64 strings
+              name: 'images/[hash]-[name].[ext]',
+            },
+          },
+        ],
+      },
+    ],
   },
   devServer: {
     contentBase: './src',
@@ -152,10 +148,10 @@ const config = {
       timings: true,
       warnings: true,
       colors: {
-        green: '\u001b[32m'
-      }
-    }
-  }
+        green: '\u001b[32m',
+      },
+    },
+  },
 };
 
 export default config;
