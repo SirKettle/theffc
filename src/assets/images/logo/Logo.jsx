@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ props, className }) => (
+export default ({ ...props, className }) => (
   <svg className={className} viewBox="0 0 400 64" version="1.1" xmlns="http://www.w3.org/2000/svg" {...props}>
     <g id="FittedFurnitureLogo" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <path

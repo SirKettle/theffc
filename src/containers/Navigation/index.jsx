@@ -7,8 +7,11 @@ import * as routerSelectors from '../../domains/router/routerSelectors';
 import * as site from '../../constants/site';
 import { navItemLinks } from '../../routes';
 import {
+  AnchorLink,
   CloseButton,
+  ContactDetails,
   Content,
+  Hr,
   LogoWrapper,
   Menu,
   NarrowLogoWrapper,
@@ -16,11 +19,13 @@ import {
   NarrowMenuContainer,
   NarrowNavigationComponent,
   NarrowNavItem,
+  NarrowNavLinkItem,
+  NarrowTheFFCLogo,
   NavButton,
   NavigationComponent,
   OpenButton,
-  PhoneNumber,
   TheFFCLogo,
+  TheFFCLogoShadow,
 } from './components';
 import FixedRatioContainer from '../../components/FixedRatioContainer/FixedRatioContainer';
 import { FixedWidthCentral } from '../../components/Layout/Centered';
@@ -70,7 +75,8 @@ export const WideScreen = ({
       <FixedWidthCentral>
         <Content>
           <LogoWrapper>
-            <FixedRatioContainer width={400} height={64}>
+            <FixedRatioContainer width={400} height={64} overflow="visible">
+              <TheFFCLogoShadow color="black" />
               <TheFFCLogo />
             </FixedRatioContainer>
           </LogoWrapper>
@@ -91,7 +97,10 @@ export const WideScreen = ({
               );
             })}
           </Menu>
-          <PhoneNumber>{site.mobile}</PhoneNumber>
+          <ContactDetails>
+            <AnchorLink href={site.mobileHref}>{site.mobile}</AnchorLink>
+            <AnchorLink href={site.emailHref}>{site.email}</AnchorLink>
+          </ContactDetails>
         </Content>
       </FixedWidthCentral>
     </NavigationComponent>
@@ -109,7 +118,7 @@ export const NarrowScreen = ({
     <NarrowNavigationComponent className={className} isScrolled={scrollY > 0}>
       <NarrowLogoWrapper>
         <FixedRatioContainer width={400} height={64}>
-          <TheFFCLogo />
+          <NarrowTheFFCLogo />
         </FixedRatioContainer>
       </NarrowLogoWrapper>
       <OpenButton onClick={() => setMenuVisible(true)}>
@@ -132,8 +141,11 @@ export const NarrowScreen = ({
               </NarrowNavItem>
             );
           })}
+          <Hr />
+          <NarrowNavLinkItem href={site.emailHref}>{site.email}</NarrowNavLinkItem>
+          <NarrowNavLinkItem href={site.mobileHref}>{site.mobile}</NarrowNavLinkItem>
         </NarrowMenu>
-        <CloseButton onClick={() => setMenuVisible(false)} width={'25px'} height={'25px'}>
+        <CloseButton onClick={() => setMenuVisible(false)} width={'18px'} height={'18px'}>
           <CloseIcon />
         </CloseButton>
       </NarrowMenuContainer>

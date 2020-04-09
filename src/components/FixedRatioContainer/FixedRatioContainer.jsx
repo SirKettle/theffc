@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   height: 0;
-  overflow: hidden;
+  overflow: ${({ overflow }) => overflow};
   position: relative;
 `;
 
@@ -15,8 +15,8 @@ const InnerWrapper = styled.div`
   height: 100%;
 `;
 
-const FixedRatioContainer = ({ className, width, height, children }) => (
-  <Wrapper className={className} style={{ paddingTop: `${(height / width) * 100}%` }}>
+const FixedRatioContainer = ({ className, width, height, children, overflow = 'hidden' }) => (
+  <Wrapper overflow={overflow} className={className} style={{ paddingTop: `${(height / width) * 100}%` }}>
     <InnerWrapper>{children}</InnerWrapper>
   </Wrapper>
 );

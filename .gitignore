@@ -28,6 +28,8 @@ node_modules
 # production files
 dist
 
+_information
+
 # Bower
 bower_components/
 

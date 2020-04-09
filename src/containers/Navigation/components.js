@@ -10,8 +10,20 @@ export const LogoWrapper = styled.div`
 `;
 
 export const TheFFCLogo = styled(Logo)`
+  position: absolute;
+  top: -0.5px;
+  left: -1px;
   width: 100%;
   height: 100%;
+`;
+
+const SHADOW_OPACITY = 0.35;
+
+export const TheFFCLogoShadow = styled(Logo)`
+  width: 100%;
+  height: 100%;
+  filter: blur(1px);
+  opacity: ${SHADOW_OPACITY};
 `;
 
 const itemStyles = css`
@@ -27,19 +39,16 @@ const itemStyles = css`
   margin: 0 25px;
 `;
 
-export const PhoneNumber = styled.div`
-  ${itemStyles}
-  margin-right: 0;
-`;
-
 const SELECTED = 0.4;
 const HOVER = 0.1;
 const ACTIVE = 0.1;
 
-export const NavButton = styled(Button)`
+const linkStyles = css`
   ${itemStyles}
   cursor: ${({ isSelected }) => (isSelected ? 'default' : 'pointer')};
-
+  text-decoration: none;
+  text-shadow: 1px 0 1px rgba(0,0,0,${SHADOW_OPACITY});
+  
   &:after {
     content: '';
     position: absolute;
@@ -63,6 +72,23 @@ export const NavButton = styled(Button)`
   }
 `;
 
+export const ContactDetails = styled.div`
+  margin-right: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const AnchorLink = styled.a`
+  ${linkStyles}
+  font-size: ${({ theme }) => theme.typography.pussy.fontSize};
+`;
+
+export const NavButton = styled(Button)`
+  ${linkStyles}
+`;
+
 export const NavigationComponent = styled.div`
   position: fixed;
   top: 0;
@@ -78,7 +104,7 @@ export const NavigationComponent = styled.div`
 
   &:hover {
     background-color: ${({ scrollY, theme }) =>
-      transparentize(1 - Math.min(1, scrollY * 0.002 + 0.3), theme.color.footerBackground)};
+      transparentize(1 - Math.min(1, scrollY * 0.002 + 0.45), theme.color.footerBackground)};
   }
 `;
 
@@ -118,6 +144,11 @@ export const NarrowNavigationComponent = styled.div`
   color: ${({ theme }) => theme.color.text};
 `;
 
+export const NarrowTheFFCLogo = styled(Logo)`
+  width: 100%;
+  height: 100%;
+`;
+
 export const NarrowMenuContainer = styled.div`
   position: fixed;
   top: 0;
@@ -127,34 +158,43 @@ export const NarrowMenuContainer = styled.div`
   z-index: 10;
   color: ${({ theme }) => theme.color.footerText};
   background-color: ${({ theme }) => transparentize(0.05, theme.color.footerBackground)};
-  display: flex;
-  align-items: flex-start;
 
-  padding: ${({ theme }) => theme.gap}px;
+  padding: ${({ theme }) => theme.gap * 2}px;
 
-  @media (min-width: 600px) {
-    padding: ${({ theme }) => `${theme.gap * 2}px ${theme.gap * 3}px`};
-  }
-
-  transform: translateX(${({ visible }) => (visible ? 0 : 100)}%);
-  transition: transform 0.25s ease-out;
+  transform: translateX(${({ visible }) => (visible ? 0 : 150)}%);
+  transition: transform 0.15s ease-out;
 `;
 
 export const NarrowMenu = styled.div`
   flex: 1 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 `;
 
 export const NarrowNavItem = styled.button`
   ${itemStyles}
-  ${getFontStyles('jaguar')}
+  ${getFontStyles('lynx')}
   opacity: ${({ isSelected }) => (isSelected ? 0.5 : 1)};
 `;
 
+export const Hr = styled.div`
+  margin: ${({ theme }) => theme.gap * 1.5}px;
+  width: 30%;
+  height: 1px;
+  background-color: ${({ theme }) => transparentize(0.85, theme.color.footerText)};
+`;
+
+export const NarrowNavLinkItem = styled.a`
+  ${itemStyles}
+  ${getFontStyles('lynx')}
+  text-decoration: none;
+`;
+
 export const CloseButton = styled(IconButton)`
-  margin-left: 20%;
+  position: absolute;
+  top: ${({ theme }) => theme.gap * 1.5}px;
+  right: ${({ theme }) => theme.gap * 1.5}px;
 `;
 
 export const OpenButton = styled(IconButton)`
