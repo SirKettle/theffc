@@ -5,56 +5,55 @@ import { PageLayout } from '../Layout';
 import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
-// import * as site from '../../constants/site';
-// import Blog from '../Blog/Blog';
-// import * as site from '../../constants/site';
-import kitchenImage1 from '../../assets/images/content/IMG_5320.jpg';
-import kitchenImage2 from '../../assets/images/content/kitchen-methods.jpg';
-import kitchenImage3 from '../../assets/images/content/kitchen-methods-chisel.jpg';
-import kitchenImage4 from '../../assets/images/content/kitchen019.jpg';
-import kitchenImage5 from '../../assets/images/content/IMG_4697.jpg';
 import kitchenCopperImage from '../../assets/images/content/kitchen-copper.jpg';
+import imageTimber from '../../assets/images/content/kitchen_timber.jpg';
+import imageDrawers1 from '../../assets/images/content/kitchen_drawers1.jpg';
+import imageDrawers2 from '../../assets/images/content/kitchen_drawers2.jpg';
+import imageWooden from '../../assets/images/content/kitchen_wooden.jpg';
+import imageBespoke from '../../assets/images/content/kitchen_bespoke.jpg';
 
-// ![${site.name} animals](${logoAnimals})
 const columnsCopy = [
   `
 # Norfolks finest bespoke kitchens and stunning handmade worktops, handcrafted in Norwich
 `,
   `
-### Handmade worktops
+### Natural Timber
 
-![Handmade kitchen worktops](${kitchenImage1})
+![Natural Timber](${imageTimber})
 
-Never will our worktops be constructed from small strips laminated together (yuk). No, we prefer to have nice wide chunky planks a minimum of 6" (15cm) wide. Normally the planks are much wider being around 10" (25cm) so this brings out the beautiful character of the wood. Many customers are put off by timber worktops having had problems with staining in the past – this is due to the poor finishing of the timber. Unlike other companies, we don't use Danish Oil, Junckers Oil or any other kind of oil. Neither do we use artificial varnishes which look artificial and plastic. So what do we use? We’re Not telling ... we don’t want anyone else to find out.
+Be assured that your kitchen is made from prime grade American Ash, you can see the grain through the painted finish giving depth and beauty to the finish. Your Shaker doors are hung on premium quality German hinges with soft close.
 
-### Finest drawers
+### The finest drawers
 
-![Hardwood kitchen cupboards and drawers](${kitchenImage4})
+![The finest drawers](${imageDrawers1})
 
-Our drawers are only ever made from hardwood (normally the same as the worktops) and always dovetailed together. Mounting them on the best German invisible soft closing runners creates a drawer that operate seamlessly and perfectly for a lifetime. We also can incorporate internal drawers. And as for chopping boards and cutlery divisions, other companies will charge you. We don't.
+Our drawers are only ever made from hardwood (normally the same as the worktops) and always dovetailed together. Mounting them on the finest 60 kg concealed soft closing runners creates a drawer that operate seamlessly and perfectly for a lifetime. We also can incorporate internal drawers behind a cupboard door.
+
+![The finest drawers](${imageDrawers2})
 `,
   `
-### Methods
+### Wood or Stone?
 
-Our doors are mortise and tenoned and hung on the finest heavy gauge polished chrome butt hinges. Our traditional kitchens are always “framed” and the cupboard itself leveled to the floor in the traditional way.
+We make our own wooden worktops in house, this allows us to carefully select the straightest and most stable planks. We like to use wide boards, to show off the beauty of the grain and figure and then finish them in an extremely hardwearing polyurethane-oil mixture, specially formulated for us. Choose from Oak, Ash, Walnut and Iroko, or whatever FSC certified timber takes your fancy.
 
-![Traditionally made kitchens](${kitchenImage2})
+![Wood or Stone?](${imageWooden})
 
-We avoid clip on plinths and our carcasing is always from thick material giving you a heavy solid cupboard which will stand the test of time. And in ten years time, you can repaint, and re-oil.
+### 100% Bespoke
 
-![Handcrafted bespoke kitchens and stunning handmade worktops](${kitchenImage3})
+Operating out of our own joinery workshop means we make everything in house, this gives us the freedom to plan your kitchen with the perfect design solution. We are not limited by standard “bought in sizes” and we can also give you as many options as you need for interiors and finishes, there is nothing we cannot make !
 
-### Pull outs
+![100% Bespoke](${imageBespoke})
 
-Some companies use cheap copies, we use only the best (German again)
+### The finish!
 
-![German made kitchen pull outs](${kitchenImage5})
+Our environmentally friendly water based paint and lacquer system offers an incredible finish, and can be made up in any colour or sheen level.
+
+![The finish!](${kitchenCopperImage})
 `,
 ];
 
 const getImages = images => images.map(i => i.src).concat(kitchenCopperImage);
 
-// {/*<Blog loadingContent={'### What have I been up to...?'} preContent={'### This is what I’ve been up to'} />*/}
 function Kitchens({ images }) {
   return (
     <PageLayout slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
@@ -68,7 +67,6 @@ function Kitchens({ images }) {
 
 const mapStateToProps = state => ({
   ...routeNodeSelector('')(state),
-  // images: twitterSelectors.imageSelector(state),
   images: twitterSelectors.imageWithHashTagSelector('kitchen')(state),
 });
 

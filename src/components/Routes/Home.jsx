@@ -4,16 +4,11 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { routeNodeSelector } from 'redux-router5';
 import { PageLayout } from '../Layout';
-// import Content from '../Content/Content';
-// import Columns from '../Columns/Columns';
 import * as site from '../../constants/site';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
 import { selectRating, selectReviewCount, selectReviews } from '../../domains/googlePlace/selectors';
-// import kitchenImage from '../../assets/images/content/homepageimage.jpg';
 import kitchenCopperImage from '../../assets/images/content/kitchen-copper.jpg';
 import { Heading } from '../Typography';
-
-// <img src="../img/homepageimage.jpg" alt="Handmade kitchens" width="350" height="233" className="right"/>
 
 const columnsCopy = [
   `
@@ -104,9 +99,7 @@ function Home({ images, googleRating, reviewCount, reviews, tweets }) {
 
 const mapStateToProps = state => ({
   ...routeNodeSelector('')(state),
-  // progress: state.user.progress,
-  // images: twitterSelectors.imageSelector(state),
-  images: twitterSelectors.imageWithHashTagSelector('kitchen')(state),
+  images: twitterSelectors.imageWithHashTagSelector('bespoke')(state),
   tweets: twitterSelectors.directTweetsSelector(state),
   googleRating: selectRating(state),
   reviewCount: selectReviewCount(state),

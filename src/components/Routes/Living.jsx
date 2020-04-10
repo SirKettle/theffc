@@ -5,61 +5,44 @@ import { PageLayout } from '../Layout';
 import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
-import image1 from '../../assets/images/content/living/01.jpg';
-import image2 from '../../assets/images/content/living/02.jpg';
-import image3 from '../../assets/images/content/living/03.jpg';
-import image4 from '../../assets/images/content/living/04.jpg';
-import image5 from '../../assets/images/content/living/05.jpg';
-import image6 from '../../assets/images/content/living/06.jpg';
-import image7 from '../../assets/images/content/living/07.jpg';
-import image8 from '../../assets/images/content/living/08.jpg';
-import image9 from '../../assets/images/content/living/09.jpg';
+import imageOffice from '../../assets/images/content/living_office.jpg';
+import imageBooks from '../../assets/images/content/living_books.jpg';
+import imageTv from '../../assets/images/content/living_tv.jpg';
+import imageAlcove from '../../assets/images/content/living_alcove.jpg';
 import fallbackImage from '../../assets/images/content/living-fallback.jpg';
 
 const columnsCopy = [
   `
-# Fitted alcove cupboards, built-in bookcases and living room furniture for your Norfolk home, totally bespoke and completely unique
+# The Fitted Furniture Company specialises in designing and manufacturing bespoke living solutions for your house in Norfolk and Suffolk.
+
+We can supply your house with a perfectly designed and immaculately finished piece of living room furniture.
 `,
   `
-### Alcove Cupboards
+### Bookcases and Shelving displays
 
-![alt](${image1})
+Customers often want to hide away toys, games and files in the cupboards below and display their photos and cherished books at high level. We work with this instruction and provide wonderful fitted furniture sympathetic to its surroundings.
 
-We specialise in alcove cupboards and fitted bookcases, our framed cabinetry is traditionally made and is made to look in keeping with your period house. The framework is totally scribed into the wall, meaning that you have no gaps, or filler strips.
+![Bookcases and Shelving displays](${imageBooks})
 
-![alt](${image2})
+### Alcove Units
 
+An extremely common solution for Victorian and Edwardian houses, typically with doors at the base and fixed or adjustable shelving above. TV’s are also commonly integrated into the top unit.
 
-### Painted or Wooden
-
-![alt](${image7})
-
-Although painted living room furniture is more widespread, you might prefer to opt for a wood finish, timbers such as walnut and European Oak are the most popular here – providing lots of warmth and beauty to your room. We only ever use the best quality; prime grade and sap free, and finished with an ecologically sound lacquer.
-
-![alt](${image8})
-
+![Alcove Units](${imageAlcove})
 `,
   `
-### Fitted TV Cupboards
 
-If you have an awkward corner space, let us create a made to measure piece that fits the space exactly, and houses all your media underneath. You can source "magic eyes" to allow you to operate your devices even while the cupboard doors are closed.
+### TV and Media Units
 
-![alt](${image9})
+![TV and Media Units](${imageTv})
 
+Leave the cable management to us, TV’s sound bars and sky boxes are all integrated seamlessly into our cabinetry. Your bespoke piece of furniture will hide away all the equipment you don’t want to see, and provide plenty of useful storage as well.
 
-### Mouldings
+### Offices
 
-![alt](${image3})
+![Offices](${imageOffice})
 
-We can match any moulding to complement the unique features that your house has, for example you may want to match the moulding on your room doors to the mouldings on your door furniture.
-
-![alt](${image4})
-
-You may have a Georgian or Victorian house, and opt for a piece of furniture that reflects the style of your house. Georgian "raised and fielded" panels, Victorian "panel mouldings", plain "shaker" style doors.
-
-![alt](${image5})
-
-![alt](${image6})
+We can integrate pull out printers, filing drawers, stationary drawers and pcs, and we also house safes into cupboards. Or anything else unique to your study!
 `,
 ];
 

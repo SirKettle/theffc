@@ -11,7 +11,7 @@ export const actionTypes = {
 
 const isDebugMode = false;
 
-export function loadTweets(dispatch, count = 25) {
+export function loadTweets(dispatch, count = 30) {
   dispatch({
     type: actionTypes.LOAD_TWEETS_PENDING
   });

@@ -56,7 +56,7 @@ const Slide = styled.div`
 function SlideShow({
   images,
   className = null,
-  displayTime = 8000,
+  displayTime = 6000,
   fadeTime = 1500,
   tick = 100,
   width = 9,
