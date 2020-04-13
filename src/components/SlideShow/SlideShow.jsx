@@ -3,6 +3,7 @@ import { memoizeWith, identity } from 'ramda';
 import styled, { css } from 'styled-components';
 import { useWindowHeight, useWindowWidth } from '@react-hook/window-size';
 import FixedRatioContainer from '../FixedRatioContainer/FixedRatioContainer';
+import Slide from './Slide';
 
 const preloadImage = memoizeWith(identity, src => {
   const image = new Image();
@@ -35,22 +36,6 @@ const SlidesContainer = styled.div`
   bottom: 0;
   left: 0;
   overflow: hidden;
-`;
-
-const Slide = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-size: cover;
-  background-position: 50% 50%;
-
-  ${({ isCurrent, opacity = 1 }) =>
-    css`
-      z-index: ${isCurrent ? 1 : 0};
-      opacity: ${opacity};
-    `}
 `;
 
 function SlideShow({
@@ -115,21 +100,19 @@ function SlideShow({
     <FixedRatioContainer width={adjustedWidth} height={adjustedHeight} className={className}>
       <SlidesContainer>
         <Slide
+          containerHeight={adjustedHeight}
+          containerWidth={adjustedWidth}
           isCurrent
           opacity={opacity}
+          src={images[currentImageIndex]}
           style={{
-            backgroundImage: `url(${images[currentImageIndex]})`,
             transition: `opacity ${fadeTime}ms ease-out`,
           }}
         />
-        <Slide
-          style={{
-            backgroundImage: `url(${images[nextImageIndex]})`,
-          }}
-        />
+        <Slide containerHeight={adjustedHeight} containerWidth={adjustedWidth} src={images[nextImageIndex]} />
       </SlidesContainer>
     </FixedRatioContainer>
   );
 }
 
-export default SlideShow;
+export default React.memo(SlideShow);
