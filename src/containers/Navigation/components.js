@@ -7,6 +7,10 @@ import { getFontStyles } from '../../components/Typography';
 
 export const LogoWrapper = styled.div`
   flex: 0 0 200px;
+
+  @media (min-width: 1100px) {
+    flex-basis: 300px;
+  }
 `;
 
 export const TheFFCLogo = styled(Logo)`

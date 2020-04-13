@@ -138,7 +138,7 @@ const config = {
   devServer: {
     contentBase: './src',
     historyApiFallback: true,
-    port: 3000,
+    port: 3003,
     compress: isProd,
     inline: !isProd,
     overlay: true,

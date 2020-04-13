@@ -62,12 +62,7 @@ export const Navigation = ({
   );
 };
 
-export const WideScreen = ({
-  className,
-  activeRoute,
-  // track,
-  navigateTo,
-}) => {
+export const WideScreen = React.memo(({ className, activeRoute, navigateTo }) => { // track,
   const scrollY = useWindowScroll(15);
 
   return (
@@ -105,14 +100,10 @@ export const WideScreen = ({
       </FixedWidthCentral>
     </NavigationComponent>
   );
-};
+});
 
-export const NarrowScreen = ({
-  className,
-  activeRoute,
-  // track,
-  navigateTo,
-}) => {
+export const NarrowScreen = React.memo(({ className, activeRoute, // track,
+  navigateTo }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   return (
     <NarrowNavigationComponent className={className} isScrolled={scrollY > 0}>
@@ -151,7 +142,7 @@ export const NarrowScreen = ({
       </NarrowMenuContainer>
     </NarrowNavigationComponent>
   );
-};
+});
 
 Navigation.defaultProps = {
   // track: () => {},

@@ -22,25 +22,25 @@ We can supply your house with a perfectly designed and immaculately finished pie
 
 Customers often want to hide away toys, games and files in the cupboards below and display their photos and cherished books at high level. We work with this instruction and provide wonderful fitted furniture sympathetic to its surroundings.
 
-![Bookcases and Shelving displays](${imageBooks})
+![Bookcases and Shelving displays - bespoke living room furniture](${imageBooks})
 
 ### Alcove Units
 
 An extremely common solution for Victorian and Edwardian houses, typically with doors at the base and fixed or adjustable shelving above. TV’s are also commonly integrated into the top unit.
 
-![Alcove Units](${imageAlcove})
+![Alcove Units - bespoke living room furniture](${imageAlcove})
 `,
   `
 
 ### TV and Media Units
 
-![TV and Media Units](${imageTv})
+![TV and Media Units - bespoke living room furniture](${imageTv})
 
 Leave the cable management to us, TV’s sound bars and sky boxes are all integrated seamlessly into our cabinetry. Your bespoke piece of furniture will hide away all the equipment you don’t want to see, and provide plenty of useful storage as well.
 
 ### Offices
 
-![Offices](${imageOffice})
+![Offices - bespoke living room furniture](${imageOffice})
 
 We can integrate pull out printers, filing drawers, stationary drawers and pcs, and we also house safes into cupboards. Or anything else unique to your study!
 `,

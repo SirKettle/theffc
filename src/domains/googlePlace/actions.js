@@ -1,4 +1,4 @@
-// import googlePlaceJson from '../../../mock/data/googlePlace.json';
+import googlePlaceJson from '../../../mock/data/googlePlace.json';
 import { googlePlaceId } from '../../constants/site';
 
 export const actionTypes = {
