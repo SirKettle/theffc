@@ -8,11 +8,14 @@ const SlideImage = styled.img`
   left: 50%;
   top: 50%;
   margin: ${({ height, width }) => `-${height * 0.5}px 0 0 -${width * 0.5}px`};
+  transition-property: opacity;
+  transition-timing-function: ease-out;
 
-  ${({ isCurrent, opacity }) =>
+  ${({ isCurrent, opacity, transitionDurationMs }) =>
     css`
       z-index: ${isCurrent ? 1 : 0};
       opacity: ${opacity};
+      transition-duration: ${isCurrent ? transitionDurationMs : 0}ms;
     `}
 `;
 
@@ -25,10 +28,10 @@ const getZoomScale = ({ width = 1, height = 1, containerWidth = 1, containerHeig
 const Slide = ({
   src,
   opacity = 1,
+  transitionDurationMs = 0,
   isCurrent = false,
   containerWidth,
   containerHeight,
-  style,
   alt = `${site.name} - ${site.description}`,
 }) => {
   const [height, setHeight] = useState(containerHeight);
@@ -66,9 +69,9 @@ const Slide = ({
       src={src}
       isCurrent={isCurrent}
       opacity={opacity}
+      transitionDurationMs={transitionDurationMs}
       height={height}
       width={width}
-      style={style}
       onLoad={onImageLoad}
       alt={alt}
     />
