@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useWindowWidth } from '@react-hook/window-size';
 import styled from 'styled-components';
 import IconButton from '../IconButton';
@@ -17,12 +17,12 @@ const Controls = styled.div`
 
 export const PlayButton = styled(IconButton)`
   margin: 30px;
-  opacity: 0.2;
+  opacity: 0.4;
 
   &:hover,
   &:active,
   &:focus {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 `;
 
@@ -44,46 +44,47 @@ const MobileButton = styled.button`
   border: none;
   margin: 0;
   background: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 `;
+
+const ICON_SIZE = '50px';
 
 export default React.memo(({ disabled, isPaused, onTogglePause, onClickPrevious, onClickNext }) => {
   const windowWidth = useWindowWidth();
 
+  const handleClickPrevious = useCallback(() => {
+    onClickPrevious();
+    if (!isPaused) {
+      onTogglePause();
+    }
+  }, []);
+
+  const handleClickNext = useCallback(() => {
+    onClickNext();
+    if (!isPaused) {
+      onTogglePause();
+    }
+  }, []);
+
   return windowWidth > 750 ? (
     <Controls>
-      <PlayButton onClick={onTogglePause}>{isPaused ? <Play /> : <Pause />}</PlayButton>
-      <PlayButton onClick={onClickPrevious}>
+      <PlayButton onClick={onTogglePause} width={ICON_SIZE} height={ICON_SIZE}>
+        {isPaused ? <Play /> : <Pause />}
+      </PlayButton>
+      <PlayButton onClick={handleClickPrevious} width={ICON_SIZE} height={ICON_SIZE}>
         <Previous />
       </PlayButton>
-      <PlayButton onClick={onClickNext}>
+      <PlayButton onClick={handleClickNext} width={ICON_SIZE} height={ICON_SIZE}>
         <Next />
       </PlayButton>
     </Controls>
   ) : (
     <MobileControls>
-      <MobileButton
-        disabled={disabled}
-        onClick={() => {
-          onClickPrevious();
-          if (!isPaused) {
-            onTogglePause();
-          }
-          return false;
-        }}
-      >
-        Prev
+      <MobileButton disabled={disabled} onClick={handleClickPrevious}>
+        Previous slide
       </MobileButton>
-      <MobileButton
-        disabled={disabled}
-        onClick={() => {
-          onClickNext();
-          if (!isPaused) {
-            onTogglePause();
-          }
-          return false;
-        }}
-      >
-        Next
+      <MobileButton disabled={disabled} onClick={handleClickNext}>
+        Next slide
       </MobileButton>
     </MobileControls>
   );

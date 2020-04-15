@@ -5,7 +5,7 @@ import useWindowScroll from '@react-hook/window-scroll';
 import { useWindowWidth } from '@react-hook/window-size';
 import * as routerSelectors from '../../domains/router/routerSelectors';
 import * as site from '../../constants/site';
-import { navItemLinks } from '../../routes';
+import { navItemLinks, ROUTES } from '../../routes';
 import {
   AnchorLink,
   CloseButton,
@@ -62,7 +62,8 @@ export const Navigation = ({
   );
 };
 
-export const WideScreen = React.memo(({ className, activeRoute, navigateTo }) => { // track,
+export const WideScreen = React.memo(({ className, activeRoute, navigateTo }) => {
+  // track,
   const scrollY = useWindowScroll(15);
 
   return (
@@ -102,14 +103,14 @@ export const WideScreen = React.memo(({ className, activeRoute, navigateTo }) =>
   );
 });
 
-export const NarrowScreen = React.memo(({ className, activeRoute, // track,
-  navigateTo }) => {
+export const NarrowScreen = React.memo(({ className, activeRoute, navigateTo }) => {
+  // track,
   const [menuVisible, setMenuVisible] = useState(false);
   return (
     <NarrowNavigationComponent className={className} isScrolled={scrollY > 0}>
       <NarrowLogoWrapper>
         <FixedRatioContainer width={400} height={64}>
-          <NarrowTheFFCLogo />
+          <NarrowTheFFCLogo onClick={() => navigateTo(ROUTES.ROOT.name)} />
         </FixedRatioContainer>
       </NarrowLogoWrapper>
       <OpenButton onClick={() => setMenuVisible(true)}>
