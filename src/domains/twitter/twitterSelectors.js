@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { compose, filter, map, pathOr, uniqBy, prop, propEq } from 'ramda';
+import { any, compose, concat, filter, includes, map, pathOr, prop, propEq, uniq, uniqBy } from 'ramda';
 import * as site from '../../constants/site';
 
 const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -18,7 +18,7 @@ const mapMedia = m => ({
 
 const getTweetImages = datum => {
   const extraMedia = pathOr([], ['extended_entities', 'media'])(datum);
-  const media = pathOr([], ['extended_entities', 'media'])(datum);
+  const media = pathOr([], ['entities', 'media'])(datum);
 
   return compose(
     uniqBy(prop('src')),
@@ -28,7 +28,20 @@ const getTweetImages = datum => {
 };
 
 export const getHashTags = datum => {
-  return (datum.entities.hashtags || []).map(hashTag => hashTag.text);
+  const tags = pathOr([], ['entities', 'hashtags'])(datum);
+  const extra = pathOr([], ['extended_entities', 'hashtags'])(datum);
+
+  const allTags = concat(tags, extra);
+  return compose(
+    uniq,
+    map(prop('text')),
+  )(allTags);
+};
+
+export const getIncludesOneOfHashtags = (hashTags = []) => datum => {
+  const tweetHashTags = getHashTags(datum);
+  const isHashTagInTweet = tag => includes(tag)(tweetHashTags);
+  return any(isHashTagInTweet)(hashTags);
 };
 
 const composeTweet = datum => {
@@ -92,6 +105,16 @@ export const imageWithHashTagSelector = tag =>
     tweets =>
       tweets
         .filter(tweet => getHashTags(tweet).includes(tag))
+        .map(getTweetImages)
+        .flatten(),
+  );
+
+export const imageWithOneOfHashTagsSelector = (hashTags = []) =>
+  createSelector(
+    directTweetsSelector,
+    tweets =>
+      tweets
+        .filter(getIncludesOneOfHashtags(hashTags))
         .map(getTweetImages)
         .flatten(),
   );

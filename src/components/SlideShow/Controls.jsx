@@ -38,13 +38,13 @@ const MobileControls = styled.div`
 `;
 
 const MobileButton = styled.button`
-  flex: 1 1 auto;
+  flex: 0 0 50%;
   opacity: 0;
   outline: none;
   border: none;
   margin: 0;
   background: none;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.025);
 `;
 
 const ICON_SIZE = '50px';
