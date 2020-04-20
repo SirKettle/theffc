@@ -65,14 +65,14 @@ const ReviewText = styled.p`
 
 const getImages = images => [kitchenCopperImage].concat(images.map(i => i.src));
 
-function Home({ images, googleRating, reviewCount, reviews, tweets }) {
+function Home({ images, googleRating, reviewCount, reviews }) {
   return (
     <PageLayout slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
       {googleRating ? (
         <div>
           <Heading>We also make happy customers</Heading>
           <p>
-            {googleRating.toFixed(1)} {times(() => '★')(googleRating).join('')} -{' '}
+            {googleRating.toFixed(1)} {times(() => '★')(Math.round(googleRating)).join('')} -{' '}
             <a href="https://www.google.com/search?q=The+Fitted+Furniture+Company+-+Handmade+Kitchens,+Wood+Farm,+High+Green,+Brooke,+Norwich+NR15+1JE&ludocid=5779555002704752917#lrd=0x47d9e5682da962d3:0x50351aa7500c7115,1">
               {reviewCount} reviews
             </a>
@@ -97,7 +97,7 @@ function Home({ images, googleRating, reviewCount, reviews, tweets }) {
 
 const mapStateToProps = state => ({
   ...routeNodeSelector('')(state),
-  images: twitterSelectors.imageWithHashTagSelector('bespoke')(state),
+  images: twitterSelectors.imageWithOneOfHashTagsSelector(['bespoke'])(state),
   tweets: twitterSelectors.directTweetsSelector(state),
   googleRating: selectRating(state),
   reviewCount: selectReviewCount(state),

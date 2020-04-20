@@ -61,7 +61,7 @@ function Living({ images }) {
 
 const mapStateToProps = state => ({
   ...routeNodeSelector('')(state),
-  images: twitterSelectors.imageWithHashTagSelector('living')(state),
+  images: twitterSelectors.imageWithOneOfHashTagsSelector(['living'])(state),
 });
 
 export default connect(mapStateToProps)(Living);

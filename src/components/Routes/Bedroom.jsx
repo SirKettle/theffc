@@ -62,7 +62,7 @@ function Bedroom({ images }) {
 
 const mapStateToProps = state => ({
   ...routeNodeSelector('')(state),
-  images: twitterSelectors.imageWithHashTagSelector('bedroom')(state),
+  images: twitterSelectors.imageWithOneOfHashTagsSelector(['bedroom'])(state),
 });
 
 export default connect(mapStateToProps)(Bedroom);

@@ -2,6 +2,8 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+// import TerserPlugin from 'terser-webpack-plugin';
+import MinifyPlugin from 'babel-minify-webpack-plugin';
 import path from 'path';
 
 const env = process.env.NODE_ENV;
@@ -27,29 +29,26 @@ const loadPlugins = () => {
     new webpack.NamedModulesPlugin(),
   ];
 
+  // mode: 'production',
+  //   optimization: {
+  //   minimizer: [new TerserPlugin({ /* additional options here */ })],
+  // },
+
   if (isProd) {
     plugins.push(
       new webpack.LoaderOptionsPlugin({
         minimize: true,
         debug: false,
       }),
-      // new webpack.optimize.UglifyJsPlugin({
-      //   compress: {
-      //     warnings: false,
-      //     screw_ie8: true,
-      //     conditionals: true,
-      //     unused: true,
-      //     comparisons: true,
-      //     sequences: true,
-      //     dead_code: true,
-      //     evaluate: true,
-      //     if_return: true,
-      //     join_vars: true,
-      //   },
-      //   output: {
-      //     comments: false,
-      //   },
-      // }),
+      // new TerserPlugin({}),
+      // new webpack.optimize.UglifyJsPlugin({}),
+      new MinifyPlugin(
+        {},
+        {
+          test: /\.(js|jsx)$/,
+          include: srcPath,
+        },
+      ),
     );
   } else {
     plugins.push(new webpack.HotModuleReplacementPlugin());
