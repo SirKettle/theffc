@@ -66,8 +66,6 @@ const ReviewText = styled.p`
 const getImages = images => [kitchenCopperImage].concat(images.map(i => i.src));
 
 function Home({ images, googleRating, reviewCount, reviews, tweets }) {
-  console.log(tweets.map(twitterSelectors.getHashTags));
-
   return (
     <PageLayout slideShowImages={getImages(images)} heroCopy={columnsCopy[0]}>
       {googleRating ? (

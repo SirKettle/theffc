@@ -26,8 +26,6 @@ export function loadTweets(dispatch, count = 30) {
     return null;
   }
 
-  console.log('theffc');
-
   return fetch(`http://api.thekettlestudio.co.uk/api/tweets.php?count=${count}&user=${twitterUserId}`, {
     method: 'GET',
   })
@@ -42,6 +40,7 @@ export function loadTweets(dispatch, count = 30) {
     .then(payload => {
       // {"errors":[{"code":34,"message":"Sorry, that page does not exist."}]}
       if (payload && payload.errors && payload.errors.length) {
+        console.error('tweets error');
         return;
       }
       dispatch({
