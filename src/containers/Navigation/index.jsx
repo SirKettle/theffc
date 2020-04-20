@@ -5,7 +5,7 @@ import useWindowScroll from '@react-hook/window-scroll';
 import { useWindowWidth } from '@react-hook/window-size';
 import * as routerSelectors from '../../domains/router/routerSelectors';
 import * as site from '../../constants/site';
-import { navItemLinks, ROUTES } from '../../routes';
+import { getRouteTitle, navItemLinks, ROUTES } from '../../routes';
 import {
   AnchorLink,
   CloseButton,
@@ -53,6 +53,7 @@ export const Navigation = ({
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = `${getRouteTitle(activeRoute)} | ${site.name}`;
   }, [activeRoute]);
 
   return windowWidth > MOBILE_MAX ? (
