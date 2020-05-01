@@ -82,6 +82,7 @@ const config = {
   output: {
     path: distPath,
     filename: isProd ? 'bundle-[chunkhash].js' : 'bundle.js',
+    publicPath: '/',
   },
   plugins: loadPlugins(),
   module: {
