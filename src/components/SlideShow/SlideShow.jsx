@@ -1,7 +1,10 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { memoizeWith, identity } from 'ramda';
 import styled from 'styled-components';
-import { useWindowHeight, useWindowWidth } from '@react-hook/window-size';
+import {
+  // useWindowHeight,
+  useWindowWidth,
+} from '@react-hook/window-size';
 import FixedRatioContainer from '../FixedRatioContainer/FixedRatioContainer';
 import Slide from './Slide';
 import Controls from './Controls';
@@ -65,10 +68,11 @@ function SlideShow({
   fadeTime = 1500,
   userActionFadeTime = 150,
   tick = 33,
-  width = 9,
-  height = 5,
+  width = 4,
+  height = 3,
   flexible = true,
 }) {
+  const windowWidth = useWindowWidth(window.width);
   const [timer, setTimer] = useState(0);
   const [imageIndexA, setImageIndexA] = useState(0);
   const [imageIndexB, setImageIndexB] = useState(getNextIndex(imageIndexA, images));
@@ -76,15 +80,15 @@ function SlideShow({
   const [opacity, setOpacity] = useState(1);
   const [transition, setTransition] = useState(false);
 
-  const [paused, setPaused] = useState(false);
+  const [paused, setPaused] = useState(windowWidth > 750);
 
   const [userAction, setUserAction] = useState(null);
 
-  const windowWidth = useWindowWidth(window.width);
-  const windowHeight = useWindowHeight(window.height);
+  // const windowHeight = useWindowHeight(window.height);
 
   const adjustedWidth = flexible ? windowWidth : width;
-  const adjustedHeight = flexible ? Math.max(windowHeight * 0.5, windowWidth * 0.45) : height;
+  // const adjustedHeight = flexible ? Math.max(windowHeight * 0.5, windowWidth * 0.45) : height;
+  const adjustedHeight = flexible ? Math.floor((windowWidth * height) / width) : height;
 
   const adjFadeTime = useMemo(() => (userAction ? userActionFadeTime : fadeTime), [
     userActionFadeTime,

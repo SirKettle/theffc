@@ -10,8 +10,12 @@ const padNum = num => {
   return num < 10 ? `0${num}` : num.toString();
 };
 
+const isHttps = location.protocol.includes('https');
+
+const mediaUrlProp = isHttps ? 'media_url_https' : 'media_url';
+
 const mapMedia = m => ({
-  src: m.media_url,
+  src: m[mediaUrlProp],
   width: m.sizes.small.w,
   height: m.sizes.small.h,
 });

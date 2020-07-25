@@ -2,21 +2,27 @@ import React, { useCallback } from 'react';
 import { useWindowWidth } from '@react-hook/window-size';
 import styled from 'styled-components';
 import IconButton from '../IconButton';
-import { Next, Pause, Play, Previous } from '../../assets/images/svg/media';
+import {
+  Next,
+  // Pause,
+  // Play,
+  Previous,
+} from '../../assets/images/svg/media';
 
 const Controls = styled.div`
   position: absolute;
   z-index: 2;
-  bottom: 0;
+  top: 50%;
   right: 0;
   left: 0;
   display: flex;
   color: white;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 ${({ theme }) => theme.gap * 3}px;
 `;
 
 export const PlayButton = styled(IconButton)`
-  margin: 30px;
+  // margin: 30px;
   opacity: 0.4;
 
   &:hover,
@@ -66,11 +72,12 @@ export default React.memo(({ disabled, isPaused, onTogglePause, onClickPrevious,
     }
   }, []);
 
+  // <PlayButton onClick={onTogglePause} width={ICON_SIZE} height={ICON_SIZE}>
+  //   {isPaused ? <Play /> : <Pause />}
+  // </PlayButton>
+
   return windowWidth > 750 ? (
     <Controls>
-      <PlayButton onClick={onTogglePause} width={ICON_SIZE} height={ICON_SIZE}>
-        {isPaused ? <Play /> : <Pause />}
-      </PlayButton>
       <PlayButton onClick={handleClickPrevious} width={ICON_SIZE} height={ICON_SIZE}>
         <Previous />
       </PlayButton>
