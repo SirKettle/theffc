@@ -98,7 +98,6 @@ function Home({ images, googleRating, reviewCount, reviews }) {
 const mapStateToProps = state => ({
   ...routeNodeSelector('')(state),
   images: twitterSelectors.imageWithOneOfHashTagsSelector(['bespoke'])(state),
-  tweets: twitterSelectors.directTweetsSelector(state),
   googleRating: selectRating(state),
   reviewCount: selectReviewCount(state),
   reviews: selectReviews(state),

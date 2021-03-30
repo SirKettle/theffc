@@ -26,7 +26,7 @@ export function loadTweets(dispatch, count = 30) {
     return null;
   }
 
-  return fetch(`https://api.thekettlestudio.co.uk/api/tweets.php?count=${count}&user=${twitterUserId}`, {
+  return fetch(`https://sirkettle.kozow.com/twitter/tweets/${twitterUserId}?count=${count}`, {
     method: 'GET',
   })
     .then(
