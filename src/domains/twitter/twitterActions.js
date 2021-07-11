@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 // import tweetsJson from '../../../mock/data/tweets.json';
 import tweetsJson from '../../../mock/data/lfcTweets.json';
-import { twitterUserId } from '../../constants/site';
+import { apiBaseUrl, twitterUserId } from '../../constants/site';
 
 export const actionTypes = {
   LOAD_TWEETS_PENDING: 'LOAD_TWEETS_PENDING',
@@ -26,7 +26,7 @@ export function loadTweets(dispatch, count = 30) {
     return null;
   }
 
-  return fetch(`https://sirkettle.kozow.com/twitter/tweets/${twitterUserId}?count=${count}`, {
+  return fetch(`${apiBaseUrl}/twitter/tweets/${twitterUserId}?count=${count}`, {
     method: 'GET',
   })
     .then(

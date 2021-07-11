@@ -15,3 +15,5 @@ export const twitterPage = `https://twitter.com/${twitterUserId}/`;
 // export const instagramPage = 'https://www.instagram.com/...';
 
 export const googlePlaceId = 'ChIJ02KpLWjl2UcRFXEMUKcaNVA';
+
+export const apiBaseUrl = 'https://sirkettle.herokuapp.com';
