@@ -10,7 +10,7 @@ export const emailHref = 'mailto:will@theffc.co.uk';
 
 // social networks
 export const twitterUserId = 'ffc_the';
-export const tumblrUserId = 'hjthirkettle';
+export const tumblrUserId = 'thefittedfurnitureco';
 export const twitterPage = `https://twitter.com/${twitterUserId}/`;
 // export const facebookPage = 'https://www.facebook.com/...';
 // export const instagramPage = 'https://www.instagram.com/...';
