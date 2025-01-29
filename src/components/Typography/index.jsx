@@ -24,30 +24,35 @@ export const Headline = styled.h2`
   ${getFontStyles('lion')}
   @media (min-width: 600px) {
     ${getFontStyles('tiger')}
+  }
 `;
 
 export const Heading = styled.h3`
   ${getFontStyles('jaguar')}
   @media (min-width: 600px) {
     ${getFontStyles('lion')}
+  }
 `;
 
 export const SubHeading = styled.h3`
   ${getFontStyles('puma')}
   @media (min-width: 600px) {
-    ${getFontStyles('jaguar')}
+    ${getFontStyles('jaguar')
+  }}
 `;
 
 export const Quote = styled.q`
   ${getFontStyles('lynx')}
   @media (min-width: 600px) {
     ${getFontStyles('puma')}
+  }
 `;
 
 export const LargeParagraph = styled.p`
   ${getFontStyles('pussy')}
   @media (min-width: 600px) {
     ${getFontStyles('lynx')}
+  }
 `;
 
 export const Paragraph = styled.p`
