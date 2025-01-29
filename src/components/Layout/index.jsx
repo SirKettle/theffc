@@ -25,15 +25,17 @@ Layout.defaultProps = {
 
 export const PageLayout = ({ children, slideShowImages, hero, heroCopy, heroCopyClassName }) => (
   <Fragment>
-    <HeroWrapper>
-      {slideShowImages ? <SlideShow images={slideShowImages} /> : null}
-      {hero ? <Hero src={hero} alt="hero" /> : null}
-      {heroCopy ? (
-        <FixedWidthCentral>
-          <HeroContent markdown={heroCopy} className={heroCopyClassName} />
-        </FixedWidthCentral>
+    <FixedWidthCentral noPadding width={1400}>
+      <HeroWrapper>
+        {slideShowImages ? <SlideShow images={slideShowImages} /> : null}
+        {hero ? <Hero src={hero} alt="hero" /> : null}
+        {heroCopy ? (
+          <FixedWidthCentral>
+            <HeroContent markdown={heroCopy} className={heroCopyClassName} />
+          </FixedWidthCentral>
       ) : null}
-    </HeroWrapper>
+      </HeroWrapper>
+    </FixedWidthCentral>
     <FixedWidthCentral>
       <MainContent>{children}</MainContent>
     </FixedWidthCentral>
