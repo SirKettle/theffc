@@ -18,3 +18,7 @@ export const twitterPage = `https://twitter.com/${twitterUserId}/`;
 export const googlePlaceId = 'ChIJ02KpLWjl2UcRFXEMUKcaNVA';
 
 export const apiBaseUrl = 'https://sirkettle.herokuapp.com';
+
+export const maxWidthPx = 1920;
+
+export const maxMobileWidthPx = 850;
