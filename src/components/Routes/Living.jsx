@@ -4,6 +4,7 @@ import { routeNodeSelector } from 'redux-router5';
 import { PageLayout } from '../Layout';
 import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
+import * as site from '../../constants/site';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
 import imageOffice from '../../assets/images/content/living_office.jpg';
 import imageBooks from '../../assets/images/content/living_books.jpg';
@@ -13,7 +14,7 @@ import fallbackImage from '../../assets/images/content/living-fallback.jpg';
 
 const columnsCopy = [
   `
-# The Fitted Furniture Company specialises in designing and manufacturing bespoke living solutions for your house in Norfolk and Suffolk.
+# ${site.name} specialises in designing and manufacturing bespoke living solutions for your house in Norfolk and Suffolk.
 
 We can supply your house with a perfectly designed and immaculately finished piece of living room furniture.
 `,

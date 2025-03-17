@@ -70,9 +70,10 @@ function SlideShow({
   tick = 33,
   width = 4,
   height = 3,
+  maxWidth = 5000,
   flexible = true,
 }) {
-  const windowWidth = useWindowWidth(window.width);
+  const windowWidth = Math.min(useWindowWidth(window.width), maxWidth);
   const [timer, setTimer] = useState(0);
   const [imageIndexA, setImageIndexA] = useState(0);
   const [imageIndexB, setImageIndexB] = useState(getNextIndex(imageIndexA, images));

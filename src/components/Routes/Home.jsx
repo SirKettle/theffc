@@ -14,7 +14,7 @@ const columnsCopy = [
   `
 # ${site.description}
 
-Specialising in bespoke kitchens, handmade fitted furniture and built in wardrobes – The Fitted Furniture Company is here to help you achieve a unique and wonderful solution for your home.
+Specialising in bespoke kitchens, handmade fitted furniture and built in wardrobes – ${site.name} is here to help you achieve a unique and wonderful solution for your home.
 
 Our ethos is to design, make and install a beautiful piece of fitted furniture that is totally different and personal to you and your house. You can be assured that what is designed will be the best solution for you, your budget and your property, and not what someone else wants to sell you! Our design work is free of charge, and should help to visualise your ideas and give you a chance to be involved.
 `,

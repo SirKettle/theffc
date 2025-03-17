@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { actions as routerActions } from 'redux-router5';
 import useWindowScroll from '@react-hook/window-scroll';
-import { useWindowWidth } from '@react-hook/window-size';
 import * as routerSelectors from '../../domains/router/routerSelectors';
 import * as site from '../../constants/site';
 import { getRouteTitle, navItemLinks, ROUTES } from '../../routes';
@@ -32,8 +31,6 @@ import { FixedWidthCentral } from '../../components/Layout/Centered';
 import CloseIcon from '../../assets/images/svg/close';
 import MenuIcon from '../../assets/images/svg/burger';
 
-const MOBILE_MAX = 900;
-
 const mapStateToProps = state => ({
   activeRoute: routerSelectors.activeRouteSelector(state),
 });
@@ -48,15 +45,14 @@ export const Navigation = ({
   activeRoute,
   // track,
   navigateTo,
+  wide = true,
 }) => {
-  const windowWidth = useWindowWidth();
-
   useEffect(() => {
     window.scrollTo(0, 0);
     document.title = `${getRouteTitle(activeRoute)} | ${site.name}`;
   }, [activeRoute]);
 
-  return windowWidth > MOBILE_MAX ? (
+  return wide ? (
     <WideScreen className={className} activeRoute={activeRoute} navigateTo={navigateTo} />
   ) : (
     <NarrowScreen className={className} activeRoute={activeRoute} navigateTo={navigateTo} />
@@ -72,7 +68,7 @@ export const WideScreen = React.memo(({ className, activeRoute, navigateTo }) =>
       <FixedWidthCentral>
         <Content>
           <LogoWrapper>
-            <FixedRatioContainer width={400} height={64} overflow="visible">
+            <FixedRatioContainer width={428} height={66} overflow="visible">
               <TheFFCLogoShadow color="black" />
               <TheFFCLogo />
             </FixedRatioContainer>
@@ -110,7 +106,7 @@ export const NarrowScreen = React.memo(({ className, activeRoute, navigateTo }) 
   return (
     <NarrowNavigationComponent className={className} isScrolled={scrollY > 0}>
       <NarrowLogoWrapper>
-        <FixedRatioContainer width={400} height={64}>
+        <FixedRatioContainer width={428} height={66}>
           <NarrowTheFFCLogo onClick={() => navigateTo(ROUTES.ROOT.name)} />
         </FixedRatioContainer>
       </NarrowLogoWrapper>
