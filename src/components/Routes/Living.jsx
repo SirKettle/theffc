@@ -10,7 +10,36 @@ import imageOffice from '../../assets/images/content/living_office.jpg';
 import imageBooks from '../../assets/images/content/living_books.jpg';
 import imageTv from '../../assets/images/content/living_tv.jpg';
 import imageAlcove from '../../assets/images/content/living_alcove.jpg';
-import fallbackImage from '../../assets/images/content/living-fallback.jpg';
+
+import img1ACBD561 from '../../assets/images/slides/living/1ACBD561-EF80-4685-AAFD-1EFE175F0AF0.jpg';
+import imgETHY4390 from '../../assets/images/slides/living/ETHY4390a.jpg';
+import imgIMG_4271 from '../../assets/images/slides/living/IMG_4271.jpg';
+import imgIMG_4272 from '../../assets/images/slides/living/IMG_4272a.jpg';
+import imgIMG_4680 from '../../assets/images/slides/living/IMG_4680.jpg';
+import imgIMG_4687 from '../../assets/images/slides/living/IMG_4687.jpg';
+import imgIMG_5041 from '../../assets/images/slides/living/IMG_5041a.jpg';
+import imgIMG_5098 from '../../assets/images/slides/living/IMG_5098.jpg';
+import imgIMG_6052 from '../../assets/images/slides/living/IMG_6052.jpg';
+import imgIMG_8824 from '../../assets/images/slides/living/IMG_8824.jpg';
+import img01 from '../../assets/images/slides/living/01.jpg';
+
+
+import imgIMG_4897 from '../../assets/images/slides/living2/IMG_4897.jpg';
+import imgIMG_5061 from '../../assets/images/slides/living2/IMG_5061.jpg';
+import imgIMG_5174 from '../../assets/images/slides/living2/IMG_5174.jpg';
+import imgIMG_5175 from '../../assets/images/slides/living2/IMG_5175.jpg';
+import imgIMG_5432 from '../../assets/images/slides/living2/IMG_5432.jpg';
+import imgIMG_5598 from '../../assets/images/slides/living2/IMG_5598.jpg';
+import imgIMG_5662 from '../../assets/images/slides/living2/IMG_5662.jpg';
+import imgIMG_5817 from '../../assets/images/slides/living2/IMG_5817.jpg';
+import imgIMG_6367 from '../../assets/images/slides/living2/IMG_6367.jpg';
+import imgIMG_6370 from '../../assets/images/slides/living2/IMG_6370.jpg';
+import imgIMG_7696 from '../../assets/images/slides/living2/IMG_7696.jpg';
+import imgIMG_7698 from '../../assets/images/slides/living2/IMG_7698.jpg';
+import imgIMG_8755 from '../../assets/images/slides/living2/IMG_8755.jpg';
+import imgIMG_8827 from '../../assets/images/slides/living2/IMG_8827.jpg';
+import imgIMG_9387 from '../../assets/images/slides/living2/IMG_9387.jpg';
+import imgIMG_9390 from '../../assets/images/slides/living2/IMG_9390.jpg';
 
 const columnsCopy = [
   `
@@ -47,7 +76,36 @@ We can integrate pull out printers, filing drawers, stationary drawers and pcs, 
 `,
 ];
 
-const getImages = images => [fallbackImage].concat(images.map(i => i.src));
+// const getImages = images => [fallbackImage].concat(images.map(i => i.src));
+const getImages = () => [
+  imgIMG_4897,
+  imgIMG_5061,
+  imgIMG_5174,
+  imgIMG_5175,
+  imgIMG_5432,
+  imgIMG_5598,
+  imgIMG_5662,
+  imgIMG_5817,
+  imgIMG_6367,
+  imgIMG_6370,
+  imgIMG_7696,
+  imgIMG_7698,
+  imgIMG_8755,
+  imgIMG_8827,
+  imgIMG_9387,
+  imgIMG_9390,
+  img1ACBD561,
+  imgETHY4390,
+  imgIMG_4271,
+  imgIMG_4272,
+  imgIMG_4680,
+  imgIMG_4687,
+  imgIMG_5041,
+  imgIMG_5098,
+  imgIMG_6052,
+  imgIMG_8824,
+  img01,
+];
 
 function Living({ images }) {
   return (

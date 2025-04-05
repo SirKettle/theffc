@@ -11,26 +11,26 @@ import kitchenCopperImage from '../../assets/images/content/kitchen-copper.jpg';
 import { Heading } from '../Typography';
 
 
-import img1ACBD561 from '../../assets/images/slides/home/1ACBD561-EF80-4685-AAFD-1EFE175F0AF0.jpg';
+import img1ACBD561 from '../../assets/images/slides/living/1ACBD561-EF80-4685-AAFD-1EFE175F0AF0.jpg';
 import img02 from '../../assets/images/slides/home/02.jpg';
 import imgDJRY5575 from '../../assets/images/slides/home/DJRY5575a.jpg';
-import imgETHY4390 from '../../assets/images/slides/home/ETHY4390a.jpg';
+import imgETHY4390 from '../../assets/images/slides/living/ETHY4390a.jpg';
 import imgGAPL3000 from '../../assets/images/slides/kitchen/IMG_8153.jpg';
 import imgGWMP9285 from '../../assets/images/slides/home/GWMP9285a.jpg';
 // import imgIMG_0235 from '../../assets/images/slides/home/IMG_0235.jpg';
 import imgIMG_0235 from '../../assets/images/slides/kitchen/IMG_0235.jpg';
-import imgIMG_4271 from '../../assets/images/slides/home/IMG_4271.jpg';
-import imgIMG_4272 from '../../assets/images/slides/home/IMG_4272a.jpg';
-import imgIMG_4482 from '../../assets/images/slides/home/IMG_4482a.jpg';
-import imgIMG_4503 from '../../assets/images/slides/home/IMG_4503a.jpg';
-import imgIMG_4680 from '../../assets/images/slides/home/IMG_4680.jpg';
-import imgIMG_4687 from '../../assets/images/slides/home/IMG_4687.jpg';
-import imgIMG_5041 from '../../assets/images/slides/home/IMG_5041a.jpg';
-import imgIMG_5098 from '../../assets/images/slides/home/IMG_5098.jpg';
+import imgIMG_4271 from '../../assets/images/slides/living/IMG_4271.jpg';
+import imgIMG_4272 from '../../assets/images/slides/living/IMG_4272a.jpg';
+import imgIMG_4482 from '../../assets/images/slides/bedroom/IMG_4482.jpg';
+import imgIMG_4503 from '../../assets/images/slides/bedroom/IMG_4503a.jpg';
+import imgIMG_4680 from '../../assets/images/slides/living/IMG_4680.jpg';
+import imgIMG_4687 from '../../assets/images/slides/living/IMG_4687.jpg';
+import imgIMG_5041 from '../../assets/images/slides/living/IMG_5041a.jpg';
+import imgIMG_5098 from '../../assets/images/slides/living/IMG_5098.jpg';
 import imgIMG_5274 from '../../assets/images/slides/home/IMG_5274.jpg';
 import imgIMG_5448 from '../../assets/images/slides/home/IMG_5448.jpg';
 import imgIMG_6043 from '../../assets/images/slides/kitchen/IMG_6043.jpg';
-import imgIMG_6052 from '../../assets/images/slides/home/IMG_6052.jpg';
+import imgIMG_6052 from '../../assets/images/slides/living/IMG_6052.jpg';
 import imgIMG_6362 from '../../assets/images/slides/home/IMG_6362.jpg';
 import imgIMG_6373 from '../../assets/images/slides/home/IMG_6373.jpg';
 import imgIMG_6375 from '../../assets/images/slides/kitchen/IMG_6375.jpg';
@@ -39,10 +39,10 @@ import imgIMG_8208 from '../../assets/images/slides/kitchen/IMG_8208.jpg';
 import imgIMG_8211 from '../../assets/images/slides/kitchen/IMG_8211.jpg';
 import imgIMG_8212 from '../../assets/images/slides/home/IMG_8212.jpg';
 import imgIMG_8213 from '../../assets/images/slides/home/IMG_8213.jpg';
-import imgIMG_8824 from '../../assets/images/slides/home/IMG_8824.jpg';
+import imgIMG_8824 from '../../assets/images/slides/living/IMG_8824.jpg';
 import imgSLIC7959 from '../../assets/images/slides/home/SLIC7959a.jpg';
 import imgXVIG6487 from '../../assets/images/slides/kitchen/IMG_7034.jpg';
-import img01 from '../../assets/images/slides/home/01.jpg';
+import img01 from '../../assets/images/slides/living/01.jpg';
 
 const columnsCopy = [
   `
