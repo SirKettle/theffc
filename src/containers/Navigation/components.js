@@ -13,7 +13,7 @@ export const LogoWrapper = styled.div`
   }
 `;
 
-export const TheFFCLogo = styled(Logo)`
+export const CompanyLogo = styled(Logo)`
   position: absolute;
   top: -0.5px;
   left: -1px;
@@ -23,7 +23,7 @@ export const TheFFCLogo = styled(Logo)`
 
 const SHADOW_OPACITY = 0.35;
 
-export const TheFFCLogoShadow = styled(Logo)`
+export const CompanyLogoShadow = styled(Logo)`
   width: 100%;
   height: 100%;
   filter: blur(1px);
@@ -148,7 +148,7 @@ export const NarrowNavigationComponent = styled.div`
   color: ${({ theme }) => theme.color.text};
 `;
 
-export const NarrowTheFFCLogo = styled(Logo)`
+export const NarrowCompanyLogo = styled(Logo)`
   width: 100%;
   height: 100%;
 `;

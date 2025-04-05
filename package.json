@@ -1,11 +1,11 @@
 {
-  "name": "theffc",
+  "name": "thenorfolkkitchencompany",
   "version": "2.0.0",
-  "description": "Website - The Fitted Furniture Company",
+  "description": "Website - The Norfolk Kitchen Company",
   "main": "index.jsx",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SirKettle/theffc"
+    "url": "https://github.com/SirKettle/thenorfolkkitchencompany"
   },
   "author": "SirKettle",
   "license": "MIT",

@@ -35,7 +35,7 @@ const typographyStyles = {
 };
 
 export const cream = {
-  name: 'The Fitted Furniture Company - default theme',
+  name: 'The Norfolk Kitchen Company - cream theme',
   color: {
     text: desaturate(0.5, lighten(0.05, '#080505')), // dark brown - text / logo
     background: desaturate(0.85, '#fefcf3'), // hsla(49, 85%, 97%, 0.5); light cream */
@@ -55,7 +55,7 @@ export const cream = {
 // https://www.sharps.co.uk/?utm_source=Google-Generics&utm_medium=cpc&utm_campaign=Product%20-%20Wardrobe%20-%20Type%20-%20Fitted%20-%20TP1%20-%20[E]&kcid=go_75115281_3430953441_373511936150_aud-473882299808:kwd-494678489032_c&gclid=Cj0KCQiA-4nuBRCnARIsAHwyuPonWVzQItxyozBttcZ_pRgX0hvv99yxZ34zHdiGwWSIIj62t-OLsT4aAvgYEALw_wcB
 
 export const blue = {
-  name: 'The Fitted Furniture Company - default theme',
+  name: 'The Norfolk Kitchen Company - blue theme',
   color: {
     text: '#092b38', // text / logo
     // text: '#83f873', // text / logo
@@ -75,26 +75,68 @@ export const blue = {
   gap: 20,
 };
 
-export default blue;
-// export default cream;
+export const green = {
+  name: 'The Norfolk Kitchen Company - green theme',
+  color: {
+    text: '#09382a', // text / logo
+    // text: '#83f873', // text / logo
+    background: lighten(0.019, '#f5f8fa'), // hsla(49, 85%, 97%, 0.5); light cream */
+    canvas: darken(0.015, '#f5f8fa'),
+    footerText: '#f5f8fa',
+    footerBackground: '#09382a',
+    link: '#eece00',
+    linkHover: '#eed900',
+  },
+  typography: {
+    fontFamily: 'helvetica, arial',
+    ...typographyStyles.lynx,
+    ...typographyStyles,
+  },
+  margin: '20px',
+  gap: 20,
+};
 
-//
-// export default {
-//   name: 'The Fitted Furniture Company - default theme',
-//   color: {
-//     text: '#912a79', // text / logo
-//     // text: '#83f873', // text / logo
-//     background: '#fafa92', // hsla(49, 85%, 97%, 0.5); light cream */
-//     footerText: '#f5f8fa',
-//     footerBackground: '#092b38',
-//     link: '#00bbee',
-//     linkHover: '#22eeff',
-//   },
-//   typography: {
-//     fontFamily: 'helvetica, arial',
-//     ...typographyStyles.lynx,
-//     ...typographyStyles,
-//   },
-//   margin: '20px',
-//   gap: 15,
-// };
+export const maroon = {
+  name: 'The Norfolk Kitchen Company - maroon theme',
+  color: {
+    text: '#380918', // text / logo
+    // text: '#83f873', // text / logo
+    background: lighten(0.019, '#f5f8fa'), // hsla(49, 85%, 97%, 0.5); light cream */
+    canvas: darken(0.015, '#f5f8fa'),
+    footerText: '#f5f8fa',
+    footerBackground: '#380918',
+    link: '#eece00',
+    linkHover: '#eed900',
+  },
+  typography: {
+    fontFamily: 'helvetica, arial',
+    ...typographyStyles.lynx,
+    ...typographyStyles,
+  },
+  margin: '20px',
+  gap: 20,
+};
+
+export const gold = {
+  name: 'The Norfolk Kitchen Company - gold theme',
+  color: {
+    text: '#2e2804', // text / logo
+    // text: '#83f873', // text / logo
+    background: lighten(0.019, '#f5f8fa'), // hsla(49, 85%, 97%, 0.5); light cream */
+    canvas: darken(0.015, '#f5f8fa'),
+    footerText: '#f5f8fa',
+    footerBackground: '#2e2804',
+    link: '#eece00',
+    linkHover: '#eed900',
+  },
+  typography: {
+    fontFamily: 'helvetica, arial',
+    ...typographyStyles.lynx,
+    ...typographyStyles,
+  },
+  margin: '20px',
+  gap: 20,
+};
+
+// export default blue;
+export default gold;

@@ -25,7 +25,7 @@ export const LogoWrapper = styled.div`
   }
 `;
 
-export const TheFFCLogo = styled(Logo)`
+export const thenorfolkkitchencompanyLogo = styled(Logo)`
   width: 100%;
   height: 100%;
 `;

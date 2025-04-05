@@ -2,8 +2,6 @@ import { reduce, pick, propEq, prop, propOr } from 'ramda';
 
 import Home from './components/Routes/Home';
 import Kitchens from './components/Routes/Kitchens';
-import Bedroom from './components/Routes/Bedroom';
-import Living from './components/Routes/Living';
 
 export const ROUTES = {
   ROOT: {
@@ -21,22 +19,6 @@ export const ROUTES = {
     label: 'Kitchens',
     inNav: true,
     title: 'Bespoke kitchens made in Norwich, Norfolk',
-  },
-  BEDROOM: {
-    name: 'bedroom',
-    path: '/bedroom',
-    component: Bedroom,
-    label: 'Bedroom',
-    inNav: true,
-    title: 'Fitted wardrobes and bedroom furniture in Norwich, Norfolk',
-  },
-  LIVING: {
-    name: 'living',
-    path: '/living',
-    component: Living,
-    label: 'Living',
-    inNav: true,
-    title: 'Bookcases, Shelving and TV Media Units handmade in Norfolk',
   },
 };
 

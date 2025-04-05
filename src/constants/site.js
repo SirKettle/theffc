@@ -1,4 +1,4 @@
-export const name = 'The Fitted Furniture Company';
+export const name = 'The Norfolk Kitchen Company';
 export const description =
   'Handmade kitchens, fitted wardrobes and bespoke fitted furniture handmade in Norwich, Norfolk';
 
@@ -7,6 +7,8 @@ export const mobile = '01508 558 384';
 export const mobileHref = 'tel:+441508558384';
 export const email = 'will@theffc.co.uk';
 export const emailHref = 'mailto:will@theffc.co.uk';
+// export const email = 'will@thenorfolkkitchencompany.co.uk';
+// export const emailHref = 'mailto:will@thenorfolkkitchencompany.co.uk';
 
 // social networks
 export const twitterUserId = 'ffc_the';

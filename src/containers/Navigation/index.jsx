@@ -19,12 +19,12 @@ import {
   NarrowNavigationComponent,
   NarrowNavItem,
   NarrowNavLinkItem,
-  NarrowTheFFCLogo,
+  NarrowCompanyLogo,
   NavButton,
   NavigationComponent,
   OpenButton,
-  TheFFCLogo,
-  TheFFCLogoShadow,
+  CompanyLogo,
+  CompanyLogoShadow,
 } from './components';
 import FixedRatioContainer from '../../components/FixedRatioContainer/FixedRatioContainer';
 import { FixedWidthCentral } from '../../components/Layout/Centered';
@@ -69,8 +69,8 @@ export const WideScreen = React.memo(({ className, activeRoute, navigateTo }) =>
         <Content>
           <LogoWrapper>
             <FixedRatioContainer width={428} height={66} overflow="visible">
-              <TheFFCLogoShadow color="black" />
-              <TheFFCLogo />
+              <CompanyLogoShadow color="black" />
+              <CompanyLogo />
             </FixedRatioContainer>
           </LogoWrapper>
           <Menu>
@@ -107,7 +107,7 @@ export const NarrowScreen = React.memo(({ className, activeRoute, navigateTo }) 
     <NarrowNavigationComponent className={className} isScrolled={scrollY > 0}>
       <NarrowLogoWrapper>
         <FixedRatioContainer width={428} height={66}>
-          <NarrowTheFFCLogo onClick={() => navigateTo(ROUTES.ROOT.name)} />
+          <NarrowCompanyLogo onClick={() => navigateTo(ROUTES.ROOT.name)} />
         </FixedRatioContainer>
       </NarrowLogoWrapper>
       <OpenButton onClick={() => setMenuVisible(true)}>
