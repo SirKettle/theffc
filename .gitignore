@@ -25,6 +25,9 @@ coverage
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
+highResImages
+imageLibrary
+
 # production files
 dist
 
@@ -37,3 +40,7 @@ bower_components/
 
 .idea
 .vscode
+
+*.DS_Store
+
+package-lock.json

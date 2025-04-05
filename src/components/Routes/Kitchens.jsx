@@ -5,12 +5,47 @@ import { PageLayout } from '../Layout';
 import Content from '../Content/Content';
 import Columns from '../Columns/Columns';
 import * as twitterSelectors from '../../domains/twitter/twitterSelectors';
-import kitchenCopperImage from '../../assets/images/content/kitchen-copper.jpg';
 import imageTimber from '../../assets/images/content/kitchen_timber.jpg';
 import imageDrawers1 from '../../assets/images/content/kitchen_drawers1.jpg';
 import imageDrawers2 from '../../assets/images/content/kitchen_drawers2.jpg';
 import imageWooden from '../../assets/images/content/kitchen_wooden.jpg';
 import imageBespoke from '../../assets/images/content/kitchen_bespoke.jpg';
+
+// import k1 from '../../assets/images/slides/kitchen/IMG_0235.jpg';
+// import k2 from '../../assets/images/slides/kitchen/IMG_0241.jpg';
+// import k3 from '../../assets/images/slides/kitchen/IMG_6375.jpg';
+// import k4 from '../../assets/images/slides/kitchen/IMG_6376.jpg';
+// import k5 from '../../assets/images/slides/kitchen/IMG_7822.jpg';
+// import k6 from '../../assets/images/slides/kitchen/IMG_8172.jpg';
+// import k7 from '../../assets/images/slides/kitchen/IMG_8208.jpg';
+// import k8 from '../../assets/images/slides/kitchen/IMG_8209.jpg';
+// import k9 from '../../assets/images/slides/kitchen/IMG_8211.jpg';
+// import k10 from '../../assets/images/slides/kitchen/IMG_8220.jpg';
+
+// IMG_3697.png
+
+import kitchenCopperImage from '../../assets/images/content/kitchen-copper.jpg';
+import IMG_0235 from '../../assets/images/slides/kitchen/IMG_0235.jpg';
+import IMG_0241 from '../../assets/images/slides/kitchen/IMG_0241.jpg';
+import IMG_6043 from '../../assets/images/slides/kitchen/IMG_6043.jpg';
+import IMG_6375 from '../../assets/images/slides/kitchen/IMG_6375.jpg';
+import IMG_6376 from '../../assets/images/slides/kitchen/IMG_6376.jpg';
+import IMG_7034 from '../../assets/images/slides/kitchen/IMG_7034.jpg';
+import IMG_8172 from '../../assets/images/slides/kitchen/IMG_8172.jpg';
+import IMG_8208 from '../../assets/images/slides/kitchen/IMG_8208.jpg';
+import IMG_8209 from '../../assets/images/slides/kitchen/IMG_8209.jpg';
+import IMG_8211 from '../../assets/images/slides/kitchen/IMG_8211.jpg';
+import IMG_8221 from '../../assets/images/slides/kitchen/IMG_8221.jpg';
+import IMG_0237 from '../../assets/images/slides/kitchen/IMG_0237.jpg';
+import IMG_0250 from '../../assets/images/slides/kitchen/IMG_0250.jpg';
+import IMG_6378 from '../../assets/images/slides/kitchen/IMG_6378.jpg';
+import IMG_6382 from '../../assets/images/slides/kitchen/IMG_6382.jpg';
+import IMG_7038 from '../../assets/images/slides/kitchen/IMG_7038.jpg';
+import IMG_8129 from '../../assets/images/slides/kitchen/IMG_8129.jpg';
+import IMG_8131 from '../../assets/images/slides/kitchen/IMG_8131.jpg';
+import IMG_8140 from '../../assets/images/slides/kitchen/IMG_8140.jpg';
+import IMG_8153 from '../../assets/images/slides/kitchen/IMG_8153.jpg';
+import IMG_9155 from '../../assets/images/slides/kitchen/IMG_9155.jpg';
 
 const columnsCopy = [
   `
@@ -52,7 +87,31 @@ Our environmentally friendly water based paint and lacquer system offers an incr
 `,
 ];
 
-const getImages = images => images.map(i => i.src).concat(kitchenCopperImage);
+// const getImages = images => images.map(i => i.src).concat(kitchenCopperImage);
+const getImages = () => [
+  IMG_6378,
+  IMG_6375,
+  IMG_6376,
+  IMG_8208,
+  IMG_8209,
+  IMG_8211,
+  IMG_8221,
+  IMG_8140,
+  IMG_8129,
+  IMG_8131,
+  IMG_7038,
+  IMG_7034,
+  IMG_0235,
+  IMG_0250,
+  IMG_0241,
+  IMG_0237,
+  IMG_9155,
+  IMG_6043,
+  IMG_8172,
+  IMG_6382,
+  IMG_8153,
+  kitchenCopperImage,
+];
 
 function Kitchens({ images }) {
   return (

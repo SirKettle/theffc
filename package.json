@@ -21,12 +21,12 @@
     "webpack"
   ],
   "scripts": {
-    "reset": "rimraf dist/* && rimraf node_modules/* && yarn",
+    "reset": "rimraf dist/* && rimraf node_modules/* && npm i",
     "clean": "rimraf dist/*",
     "lint": "eslint --ext .js --ext .jsx ./src",
     "start": "cross-env NODE_ENV=development webpack-dev-server --open",
-    "build-dev": "yarn run clean && cross-env NODE_ENV=development webpack",
-    "build-prod": "yarn run clean && cross-env NODE_ENV=production webpack",
+    "build-dev": "npm run clean && cross-env NODE_ENV=development webpack",
+    "build-prod": "npm run clean && cross-env NODE_ENV=production webpack",
     "test": "jest --watch",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
