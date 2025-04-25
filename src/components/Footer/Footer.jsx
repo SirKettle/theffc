@@ -4,16 +4,20 @@ import Content from '../Content/Content';
 import * as site from '../../constants/site';
 import { FixedWidthCentral } from '../Layout/Centered';
 import { Paragraph, SmallPrint } from '../Typography';
+import InstagramLogo from '../../assets/images/social/instagram.png';
 
 const markdown = `
   ### Contact
   
   Please call Will on [${site.mobile}](${site.mobileHref}) or email [${site.email}](${site.emailHref}).
 
+  If you would like to see more examples of our work, [![Instagram Logo](${InstagramLogo}) ${site.instagramLinkText}](${site.instagramPage})
+
   Wood Farm Barn, High Green, Brooke, Norwich, Norfolk - NR15 1JE
 `;
 
 const FooterWrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   color: ${({ theme }) => theme.color.footerText};
@@ -55,7 +59,9 @@ const fullYear = new Date().getUTCFullYear();
 const Footer = ({ className }) => (
   <FooterWrapper className={className}>
     <FixedWidthCentral>
-      <Content markdown={markdown} />
+      <Content
+        markdown={markdown}
+      />
       <Map
         width="100%"
         height="450"

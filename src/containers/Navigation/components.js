@@ -142,10 +142,26 @@ export const NarrowNavigationComponent = styled.div`
   padding: ${({ theme }) => theme.gap}px;
 
   @media (min-width: 600px) {
-    padding: ${({ theme }) => `${theme.gap * 2}px ${theme.gap * 3}px`};
+    padding: ${({ theme }) => `${theme.gap * 2}px ${theme.gap * 2}px`};
   }
 
   color: ${({ theme }) => theme.color.text};
+  gap: ${({ theme }) => `${theme.gap * 0.5}px`};
+
+  > .spacer {
+    flex: 1 1 auto;
+    max-width: 10%;
+    min-width: ${({ theme }) => `${theme.gap}px`};
+  }
+
+  > a.link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    flex: 0 0 auto;
+    padding: ${({ theme }) => `${theme.gap * 0.5}px`};
+  }
 `;
 
 export const NarrowTheFFCLogo = styled(Logo)`
@@ -193,6 +209,12 @@ export const NarrowNavLinkItem = styled.a`
   ${itemStyles}
   ${getFontStyles('lynx')}
   text-decoration: none;
+
+  &.with-icon {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
 `;
 
 export const CloseButton = styled(IconButton)`
@@ -202,7 +224,7 @@ export const CloseButton = styled(IconButton)`
 `;
 
 export const OpenButton = styled(IconButton)`
-  margin-left: 30%;
+  padding: 7px;
 `;
 
 export const NarrowLogoWrapper = styled.div`

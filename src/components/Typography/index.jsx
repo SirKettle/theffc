@@ -50,6 +50,27 @@ export const Quote = styled.q`
 
 export const LargeParagraph = styled.p`
   ${getFontStyles('pussy')}
+
+  a {
+    /* display: inline-flex; */
+    align-items: flex-end;
+    gap: 5px;
+    > * {
+      flex: 0 0 auto;
+      display: block;
+    }
+
+    img {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin: 0;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+
   @media (min-width: 600px) {
     ${getFontStyles('lynx')}
   }

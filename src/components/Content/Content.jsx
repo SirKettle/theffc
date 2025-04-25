@@ -47,18 +47,25 @@ const defaultRenderers = {
   link: args => {
     const newTab = args.href.indexOf('http') !== -1;
     return (
-      <a href={args.href} target={newTab ? '_blank' : '_self'}>
+      <a
+        href={args.href}
+        target={newTab ? '_blank' : '_self'}
+        rel={newTab ? 'noopener noreferrer' : undefined}
+      >
         {args.children}
       </a>
     );
   },
 };
 
-const Content = ({ className, markdown, renderers, noRenderers, justifyText }) => (
+const Content = ({ className, markdown, renderers, noRenderers, justifyText, extraRenderers }) => (
   <Markdown
     className={classnames(styles.content, styles[justifyText], className)}
     source={markdown}
-    renderers={noRenderers ? undefined : renderers}
+    renderers={noRenderers ? undefined : {
+      ...renderers,
+      ...extraRenderers,
+    }}
     astPlugins={[stripImageParagraphPlugin]}
   />
 );
@@ -68,6 +75,7 @@ Content.defaultProps = {
   justifyText: 'left',
   noRenderers: false,
   renderers: defaultRenderers,
+  extraRenderers: {},
 };
 
 export default Content;

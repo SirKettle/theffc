@@ -30,6 +30,7 @@ import FixedRatioContainer from '../../components/FixedRatioContainer/FixedRatio
 import { FixedWidthCentral } from '../../components/Layout/Centered';
 import CloseIcon from '../../assets/images/svg/close';
 import MenuIcon from '../../assets/images/svg/burger';
+import InstagramLogo from '../../assets/images/social/instagram.png';
 
 const mapStateToProps = state => ({
   activeRoute: routerSelectors.activeRouteSelector(state),
@@ -68,7 +69,7 @@ export const WideScreen = React.memo(({ className, activeRoute, navigateTo }) =>
       <FixedWidthCentral>
         <Content>
           <LogoWrapper>
-            <FixedRatioContainer width={428} height={66} overflow="visible">
+            <FixedRatioContainer width={400} height={64} overflow="visible">
               <TheFFCLogoShadow color="black" />
               <TheFFCLogo />
             </FixedRatioContainer>
@@ -91,8 +92,9 @@ export const WideScreen = React.memo(({ className, activeRoute, navigateTo }) =>
             })}
           </Menu>
           <ContactDetails>
-            <AnchorLink href={site.mobileHref}>{site.mobile}</AnchorLink>
+            <AnchorLink href={site.instagramPage} target="_blank" rel="noopener noreferrer">{site.instagramLinkText}</AnchorLink>
             <AnchorLink href={site.emailHref}>{site.email}</AnchorLink>
+            <AnchorLink href={site.mobileHref}>{site.mobile}</AnchorLink>
           </ContactDetails>
         </Content>
       </FixedWidthCentral>
@@ -106,11 +108,13 @@ export const NarrowScreen = React.memo(({ className, activeRoute, navigateTo }) 
   return (
     <NarrowNavigationComponent className={className} isScrolled={scrollY > 0}>
       <NarrowLogoWrapper>
-        <FixedRatioContainer width={428} height={66}>
+        <FixedRatioContainer width={400} height={64}>
           <NarrowTheFFCLogo onClick={() => navigateTo(ROUTES.ROOT.name)} />
         </FixedRatioContainer>
       </NarrowLogoWrapper>
-      <OpenButton onClick={() => setMenuVisible(true)}>
+      <div className="spacer" />
+      <a className="link-icon" href={site.instagramPage} target="_blank" rel="noopener noreferrer"><img src={InstagramLogo} alt="Instagram Logo" width="24" height="24" /></a>
+      <OpenButton width="40px" height="40px" onClick={() => setMenuVisible(true)}>
         <MenuIcon />
       </OpenButton>
       <NarrowMenuContainer visible={menuVisible}>
@@ -133,6 +137,7 @@ export const NarrowScreen = React.memo(({ className, activeRoute, navigateTo }) 
           <Hr />
           <NarrowNavLinkItem href={site.emailHref}>{site.email}</NarrowNavLinkItem>
           <NarrowNavLinkItem href={site.mobileHref}>{site.mobile}</NarrowNavLinkItem>
+          <NarrowNavLinkItem className="with-icon" href={site.instagramPage} target="_blank" rel="noopener noreferrer"><img src={InstagramLogo} alt="Instagram Logo" width="25" height="25" />{site.instagramLinkText}</NarrowNavLinkItem>
         </NarrowMenu>
         <CloseButton onClick={() => setMenuVisible(false)} width={'18px'} height={'18px'}>
           <CloseIcon />
